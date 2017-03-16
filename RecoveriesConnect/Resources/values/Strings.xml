@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="CopyRight">Copyright - Synotive @2016</string>
+    <string name="WelcomeMessage">The hassle free, speedy &#038; secure way to manage your recoveriescorp instalment plan all in the palm of your hand.</string>
+    <string name="ResetMessage">Recoveriesconnect will be reset - you will need to verify and setup again. Continue?</string>
+    <string name="NoConnection">No connections are available</string>
+    <string name="MaxDefer">You have deferred the maximum number of payments. Please schedule a callback from Recoveriescorp</string>
+    <string name="SelectDefer">Please select the payment you want to defer.</string>
+
+	
+    <string name="NoActiveNumber">This ref number has no active mobile number - Please contact recoveriescorp</string>
+    <string name="NoPersmission">You do not have permission to view this arrangement</string>
+	<string name="NoArrangement">You have no arrangement setup at this time</string>
+    <string name="NoServer">Server not found</string>
+  
+    <string name="GetNetCode">Get your NetCode again?</string>
+    <string name="NetCodeInvalid">Invalid NetCode</string>
+    <string name="NetCodeSent">NetCode has been sent to your mobile number -</string>
+    <string name="NotMatchPinNumber">PIN does not match - please try again</string>
+    <string name="EnterPinNumber">Enter the PIN you will use to access recoveriesconnect</string>
+    <string name="ReEnterPinNumber">Re-enter the PIN</string>
+    <string name="FailPin10">10 failed PIN attempts - recoveriesconnect has been reset</string>
+    <string name="FailPin1">Entered PIN is incorrect - please try again</string>
+    <string name="Waiting1">Thank you for waiting...</string>
+    <string name="Waiting2">We are logging you into the system...</string>
+    <string name="Waiting3">It will take a few seconds...</string>
+    <string name="AmountMustBeGreaterThan0">Amount must be greater than $0.00</string>
+    <string name="PaymentAlreadyDeferred">This payment is already deferred</string>
+    <string name="DateEarlierToday">Date must not be earlier than today</string>
+    <string name="CallbackFinish">Callback request successfully submitted. One of our friendly operators will call you on the day and time you have requested</string>
+
+	
+    <string name="FinishFeedback">Your feedback has been sent successfully</string>
+    <string name="SelectPaymentMethod">Please select payment method</string>
+    <string name="CouldNotVerify">We could not verify your details. Please enter your verification details exactly as printed on your letter, or contact RecoveriesCorp on 03 8627 0600</string>
+
+    <string name="ExpireMonthMustLaster">Expiry month must be later than this month</string>
+    <string name="AccountNumberInLength">Account Number should be from 5 to 15 numeric characters in length</string>
+  
+    <string name="EnterAccountNumber">Please enter Account Number</string>
+    <string name="EnterBSB1">Please enter BSB 1</string>
+    <string name="EnterBSB2">Please enter BSB 2</string>
+    <string name="EnterAccountName">Please enter Account Name</string>
+    <string name="EnterAmount">Please enter amount</string>
+    <string name="AmountLessThanRequired">Payment amount is less than the minimum required</string>
+    <string name="AmountLessThanOutStanding">Payment amount must be less than the outstanding amount</string>
+
+    <string name="EnterName">Please enter name</string>
+    <string name="EnterCardNumber">Please enter card number</string>
+    <string name="EnterCardType">Please select card type</string>
+    <string name="EnterCardExpiry">Please select card expiry</string>
+    <string name="EnterCVV">Please enter CVV</string>
+    <string name="NOCInvalid">Name On Card is not valid</string>
+    <string name="CNInvalid">Card Number is not valid</string>
+    <string name="CVVInvalid">CVV is not valid</string>
+
+    <string name="EnterFullName">Please enter your full name</string>
+    <string name="EnterPhoneNumber">Please enter your phone number</string>
+    <string name="EnterEmail">CallbackPlease enter a valid email address</string>
+    <string name="EnterFirstPayment">Please enter 1st payment instalment</string>
+    <string name="EnterSecondPayment">Please enter 2nd payment instalment</string>
+    <string name="EnterThirdPayment">Please enter 3rd payment instalment</string>
+    <string name="EnterPostCode">Please enter postcode</string>
+    <string name="EnterSubject">Please enter subject</string>
+    <string name="EnterContent">Please enter content</string>
+    <string name="EnterDate">Please enter date</string>
+	<string name="EnterDiffDate">Please enter different date</string>
+    <string name="EnterTimeFrom">Please enter time from</string>
+    <string name="EnterTimeTo">Please enter time to</string>
+    <string name="PhoneInvalid">Please enter a valid phone</string>
+
+    
+
+    <string name="BSB1Invalid">The BSB number 1 is not valid</string>
+    <string name="BSB2Invalid">The BSB number 2 is not valid</string>
+    <string name="AccountNameInvalid">Account Name is not valid</string>
+    <string name="AccountNumberInvalid">Account Number should be from 5 to 15 numeric characters</string>
+  
+    <string name="RefNumberInvalid">Please enter correct reference number</string>
+
+    <string name="EnterFirstPayment">Please enter first payment amount</string>
+    <string name="EnterSecondPayment">Please enter second payment amount</string>
+    <string name="EnterThirdPayment">Please enter third payment amount</string>
+
+    <string name="EnterFirstPaymentDate">Please enter first payment date</string>
+    <string name="EnterSecondPaymentDate">Please enter second payment date</string>
+    <string name="EnterThirdPaymentDate">Please enter third payment date</string>
+	
+    <string name="FirstPaymentIn7">1st payment date must be valid within next 7 days</string>
+    <string name="SecondPaymentMusAfterFirstPayment">2nd payment date must be later than 1st instalment date</string>
+    <string name="ThirdPaymentMusAfterSecondPayment">3rd payment date must be later than 2nd instalment date</string>
+
+	
+    <string name="EnterFrequency">Please select frequency of instalment</string>
+    <string name="InstalmentAmountInvalid">Instalment Amount total is not valid</string>
+    <string name="MaxTime2Payment">Maximum time between two payments is 14 days</string>
+    <string name="ThirdPaymentAfter">3rd payment date must be after the 2nd instalment date</string>
+    <string name="ThirdPaymentGreater10">3rd payment should be greater than or equal to $10.00</string>
+    <string name="FirstPaymentIn30">1st payment date must be valid within next 30 days</string>
+	<string name="AmountLessThanNegotiated">Payment does not meet your negotiated limit</string>
+
+
+	<string name="drawer_open">Open</string>
+	<string name="drawer_close">Close</string>
+	<string name="menu_refresh">Refresh</string>
+
+	<string name="SelectPaymentMethod">Select Method</string>
+	<string name="MakeAPayment">Make a Payment</string>
+	<string name="PaymentTracker">Payment Tracker</string>
+	<string name="InstalmentInfo">Instalment Info</string>
+	<string name="DeferPayment">Defer Payment</string>
+	<string name="ScheduleCallback">Schedule Callback</string>
+	<string name="ProvideFeedback">Provide Feedback</string>
+	<string name="Inbox">Inbox</string>
+	<string name="Receipt">Receipt</string>
+	<string name="PaymentSummary">Payment Summary</string>
+	<string name="UpdateCreditCard">View/Update Credit Card</string>
+	<string name="UpdateBankAccount">View/Update Bank Account</string>
+	<string name="UpdatePersonalInformation">View/Update Personal Information</string>
+	<string name="SetupSchedule">Setup Schedule</string>
+	<string name="InstalmentSummary">Instalment Summary</string>
+	<string name="SetupInstalment">Setup Instalment</string>
+	<string name="InboxDetail">Inbox Detail</string>
+
+	
+</resources>

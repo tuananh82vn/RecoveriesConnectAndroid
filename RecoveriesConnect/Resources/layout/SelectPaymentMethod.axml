@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <TextView
+            android:text="Select Payment Method"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_Message"
+            android:textColor="#006571"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" />
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            android:id="@+id/spinner_Method"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center_vertical"
+            android:spinnerMode="dialog"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_marginTop="5dp" />
+    </LinearLayout>
+    <Button
+        android:text="Continue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt_Continue"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:textColor="@drawable/ButtonTextColor"
+        android:background="#006571"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp" />
+</RelativeLayout>

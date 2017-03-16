@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:gravity="top">
+        <ImageView
+            android:src="@drawable/logo"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:id="@+id/imageView1"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_alignParentTop="true"
+            android:paddingTop="10dp" />
+        <TextView
+            android:text="Account verify by NetCode"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/textView1"
+            android:textColor="#006571"
+            android:textStyle="normal"
+            android:gravity="center_vertical"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
+        <Button
+            android:text="Get your NetCode SMS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonNetcode"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:textColor="@drawable/ButtonTextColor"
+            android:background="#006571"
+            android:layout_marginTop="10dp" />
+        <TextView
+            android:text="Enter you NetCode"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/textView2"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            android:textStyle="normal"
+            android:gravity="center_vertical"
+            android:textColor="#006571" />
+        <EditText
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_NetCode"
+            android:hint="NetCode"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
+    </LinearLayout>
+    <Button
+        android:text="Continue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonContinue"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:textColor="@drawable/ButtonTextColor"
+        android:background="#006571"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp" />
+</RelativeLayout>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HScrollDemo.UserControls.HScrollViewCell2"
+             xmlns:local="clr-namespace:HScrollDemo.ResourceExtensions;assembly=HScrollDemo.WinPhone"
+             BackgroundColor="Transparent"
+             Padding="10"
+>
+    <StackLayout  BackgroundColor="Transparent" Orientation="Vertical">
+        <Image Source="{local:ImageResource icon0.png}" x:Name="iconImage" />
+        <Label FontSize="Small" VerticalOptions="End" HorizontalOptions="Center" Text="{Binding name}" x:Name="itemLabel"/>
+    </StackLayout>
+</ContentView>

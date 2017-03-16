@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="top">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ln_Message"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout1"
+                android:layout_weight="3">
+                <TextView
+                    android:text="Can you pay the total amount in 3 payments within 42 days?"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tv_Message"
+                    android:gravity="center_vertical" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout1">
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/sw_Message"
+                    android:textOn="Yes"
+                    android:textOff="No" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:id="@+id/ln_Body">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/ln_Pay1">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/linearLayout1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp">
+                    <TextView
+                        android:text="First Amount ($)"
+                        android:layout_width="125dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/textView3"
+                        android:gravity="center_vertical" />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/et_FirstAmount"
+                        android:numeric="decimal"
+                        android:maxLength="16"
+                        android:inputType="number" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:id="@+id/linearLayout2">
+                    <TextView
+                        android:layout_width="125dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/textView4"
+                        android:gravity="center_vertical"
+                        android:visibility="invisible" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/err_FirstAmount"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/red" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/linearLayout1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp">
+                    <TextView
+                        android:text="Date"
+                        android:layout_width="125dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/textView3"
+                        android:gravity="center_vertical" />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/et_FirstDate"
+                        android:clickable="true"
+                        android:cursorVisible="false"
+                        android:focusable="false" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:id="@+id/linearLayout2">
+                    <TextView
+                        android:layout_width="125dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/textView4"
+                        android:gravity="center_vertical"
+                        android:visibility="invisible" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/err_FirstDate"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/red" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/ln_Pay2">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/linearLayout1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp">
+                    <TextView
+                        android:text="Second Amount ($)"
+                        android:layout_width="125dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/textView3"
+                        android:gravity="center_vertical" />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/et_SecondAmount"
+                        android:numeric="decimal"
+                        android:maxLength="16"
+                        android:inputType="number" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:id="@+id/linearLayout2">
+                    <TextView
+                        android:layout_width="125dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/textView4"
+                        android:gravity="center_vertical"
+                        android:visibility="invisible" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/err_SecondAmount"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/red" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/linearLayout1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp">
+                    <TextView
+                        android:text="Date"
+                        android:layout_width="125dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/textView3"
+                        android:gravity="center_vertical" />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/et_SecondDate"
+                        android:clickable="true"
+                        android:cursorVisible="false"
+                        android:focusable="false" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:id="@+id/linearLayout2">
+                    <TextView
+                        android:layout_width="125dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/textView4"
+                        android:gravity="center_vertical"
+                        android:visibility="invisible" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/err_SecondDate"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/red" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/ln_Pay3">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/linearLayout1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp">
+                    <TextView
+                        android:text="Third Amount ($)"
+                        android:layout_width="125dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/textView3"
+                        android:gravity="center_vertical" />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/et_ThirdAmount"
+                        android:numeric="decimal"
+                        android:maxLength="16"
+                        android:inputType="number" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:id="@+id/linearLayout2">
+                    <TextView
+                        android:layout_width="125dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/textView4"
+                        android:gravity="center_vertical"
+                        android:visibility="invisible" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/err_ThirdAmount"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/red" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/linearLayout1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp">
+                    <TextView
+                        android:text="Date"
+                        android:layout_width="125dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/textView3"
+                        android:gravity="center_vertical" />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/et_ThirdDate"
+                        android:clickable="true"
+                        android:cursorVisible="false"
+                        android:focusable="false" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:id="@+id/linearLayout2">
+                    <TextView
+                        android:layout_width="125dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/textView4"
+                        android:gravity="center_vertical"
+                        android:visibility="invisible" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/err_ThirdDate"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/red" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:padding="5dp"
+        android:id="@+id/ln_Bottom">
+        <Button
+            android:text="4 or More Payments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/bt_Continue"
+            android:textColor="@drawable/ButtonTextColor"
+            android:background="#006571"
+            android:textSize="20dp" />
+    </LinearLayout>
+</RelativeLayout>

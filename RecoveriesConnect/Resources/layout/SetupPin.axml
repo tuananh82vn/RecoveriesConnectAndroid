@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:gravity="top">
+        <ImageView
+            android:src="@drawable/logo"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:id="@+id/imageView1"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_alignParentTop="true"
+            android:paddingTop="10dp" />
+        <TextView
+            android:text="Enter the PIN you will use to access recoveriesconnect"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/textView1"
+            android:textColor="#006571"
+            android:textStyle="normal"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="150.0dp"
+            android:id="@+id/linearLayout_onTop"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:longClickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp">
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tv_Pin1"
+                    android:background="@drawable/textview_border"
+                    android:gravity="center"
+                    android:password="true"
+                    android:textSize="50dp"
+                    android:layout_marginRight="10dp" />
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tv_Pin2"
+                    android:background="@drawable/textview_border"
+                    android:gravity="center"
+                    android:password="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textSize="50dp" />
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tv_Pin3"
+                    android:background="@drawable/textview_border"
+                    android:gravity="center"
+                    android:password="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textSize="50dp" />
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tv_Pin4"
+                    android:background="@drawable/textview_border"
+                    android:gravity="center"
+                    android:password="true"
+                    android:textSize="50dp"
+                    android:layout_marginLeft="10dp" />
+            </LinearLayout>
+        </LinearLayout>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_Pin"
+            android:maxLength="4"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:cursorVisible="false"
+            android:clickable="false"
+            android:inputType="number"
+            android:background="@android:color/transparent"
+            android:textColor="@android:color/transparent"
+            android:textColorHighlight="@android:color/transparent"
+            android:textColorHint="@android:color/transparent"
+            android:textColorLink="@android:color/transparent"
+            android:numeric="integer" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cross.Pie.Droid.Sample", "Cross.Pie.Droid.Sample\Cross.Pie.Droid.Sample.csproj", "{E745F140-3F8E-41B1-B2A9-99E5E95A9ACA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		DebugLimit|Any CPU = DebugLimit|Any CPU
+		ReleaseLimit|Any CPU = ReleaseLimit|Any CPU
+		DebugTry|Any CPU = DebugTry|Any CPU
+		ReleaseTry|Any CPU = ReleaseTry|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E745F140-3F8E-41B1-B2A9-99E5E95A9ACA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E745F140-3F8E-41B1-B2A9-99E5E95A9ACA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E745F140-3F8E-41B1-B2A9-99E5E95A9ACA}.DebugLimit|Any CPU.ActiveCfg = Debug|Any CPU
+		{E745F140-3F8E-41B1-B2A9-99E5E95A9ACA}.DebugLimit|Any CPU.Build.0 = Debug|Any CPU
+		{E745F140-3F8E-41B1-B2A9-99E5E95A9ACA}.DebugTry|Any CPU.ActiveCfg = Debug|Any CPU
+		{E745F140-3F8E-41B1-B2A9-99E5E95A9ACA}.DebugTry|Any CPU.Build.0 = Debug|Any CPU
+		{E745F140-3F8E-41B1-B2A9-99E5E95A9ACA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E745F140-3F8E-41B1-B2A9-99E5E95A9ACA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E745F140-3F8E-41B1-B2A9-99E5E95A9ACA}.ReleaseLimit|Any CPU.ActiveCfg = Debug|Any CPU
+		{E745F140-3F8E-41B1-B2A9-99E5E95A9ACA}.ReleaseLimit|Any CPU.Build.0 = Debug|Any CPU
+		{E745F140-3F8E-41B1-B2A9-99E5E95A9ACA}.ReleaseTry|Any CPU.ActiveCfg = Debug|Any CPU
+		{E745F140-3F8E-41B1-B2A9-99E5E95A9ACA}.ReleaseTry|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+EndGlobal

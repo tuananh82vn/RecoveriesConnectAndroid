@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HScrollDemo.XamlPage"
+             xmlns:mcpControls="clr-namespace:mcpNetwork.Components.Xaml;assembly=mcpNetwork.HorizontalScrollLayout"
+             xmlns:HScrollControls="clr-namespace:HScrollDemo.UserControls;assembly=HScrollDemo.Droid"
+             xmlns:local="clr-namespace:HScrollDemo.ResourceExtensions;assembly=HScrollDemo.Droid"
+>
+
+    <StackLayout
+        VerticalOptions = "FillAndExpand"
+        HorizontalOptions = "Start"
+    >
+
+        <StackLayout
+            VerticalOptions = "FillAndExpand"
+            HorizontalOptions = "Start"
+        >
+            <mcpControls:HorizontalScrollLayout 
+                x:Name="HScroll1"
+                SelectionBackGroundColor="Red"
+                MultiSelection="False"
+            />
+            <Label Text="Horizontal scrollbar with unique selection" VerticalOptions="End" HorizontalOptions="Start" />
+        </StackLayout>
+
+        <StackLayout
+            VerticalOptions = "FillAndExpand"
+            HorizontalOptions = "Start"
+        >
+            <mcpControls:HorizontalScrollLayout 
+                x:Name="HScroll2"
+                SelectionBackGroundColor="Lime"
+                MultiSelection="True"
+            />
+            <Label Text="Horizontal scrollbar with unique selection" VerticalOptions="End" HorizontalOptions="Start" />
+        </StackLayout>
+
+        <StackLayout
+            VerticalOptions = "FillAndExpand"
+            HorizontalOptions = "Start"
+        >
+            <mcpControls:HorizontalScrollLayout 
+                x:Name="HScroll3"
+                SelectionBackGroundColor="Teal"
+                MultiSelection="False"
+            />
+            <Label Text="Tapped items here will go into the list below" VerticalOptions="End" HorizontalOptions="Start" />
+        </StackLayout>
+
+        <StackLayout
+            VerticalOptions = "FillAndExpand"
+            HorizontalOptions = "Start"
+        >
+            <mcpControls:HorizontalScrollLayout 
+                x:Name="HScroll4"
+                SelectionBackGroundColor="Teal"
+                MultiSelection="False"
+            />
+            <Label Text="Tapped items here will go into the list above" VerticalOptions="End" HorizontalOptions="Start" />
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>

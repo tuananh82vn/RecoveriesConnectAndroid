@@ -1,0 +1,624 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{90C6A517-CF6C-4C7F-9F6B-193BC26F1728}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RecoveriesConnect</RootNamespace>
+    <AssemblyName>RecoveriesConnect</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <AndroidApplication>true</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
+    <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <AndroidLinkSkip />
+    <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
+    <AndroidSupportedAbis />
+    <AndroidStoreUncompressedFileExtensions />
+    <MandroidI18n />
+    <Debugger>Xamarin</Debugger>
+    <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType></DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
+    <AndroidSupportedAbis>armeabi-v7a</AndroidSupportedAbis>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FormsViewGroup, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.2.2.0.45\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GCM.Client">
+      <HintPath>..\Components\GCMClient-1.0\lib\android\GCM.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="mcpNetwork.HorizontalScrollLayout">
+      <HintPath>..\Components\hscroll-1.1.1\lib\android\mcpNetwork.HorizontalScrollLayout.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Android.Export" />
+    <Reference Include="mscorlib" />
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Refractored.Xam.Settings, Version=1.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugins.Settings.1.5.2\lib\MonoAndroid10\Refractored.Xam.Settings.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Refractored.Xam.Settings.Abstractions, Version=1.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugins.Settings.1.5.2\lib\MonoAndroid10\Refractored.Xam.Settings.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Json" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.Xamarin.Android.Chart">
+      <HintPath>..\packages\Telerik Android\Telerik.Xamarin.Android.Chart.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Xamarin.Android.Common">
+      <HintPath>..\packages\Telerik Android\Telerik.Xamarin.Android.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Xamarin.Android.Data">
+      <HintPath>..\packages\Telerik Android\Telerik.Xamarin.Android.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Xamarin.Android.Feedback">
+      <HintPath>..\packages\Telerik Android\Telerik.Xamarin.Android.Feedback.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Xamarin.Android.Input">
+      <HintPath>..\packages\Telerik Android\Telerik.Xamarin.Android.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Xamarin.Android.List">
+      <HintPath>..\packages\Telerik Android\Telerik.Xamarin.Android.List.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Xamarin.Android.Primitives">
+      <HintPath>..\packages\Telerik Android\Telerik.Xamarin.Android.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Animated.Vector.Drawable, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.Animated.Vector.Drawable.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.Animated.Vector.Drawable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Design, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.Design.23.3.0\lib\MonoAndroid43\Xamarin.Android.Support.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v4, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.v4.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.AppCompat, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.v7.AppCompat.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.AppCompat.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.CardView, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.v7.CardView.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.CardView.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.MediaRouter, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.v7.MediaRouter.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.MediaRouter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.RecyclerView, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.v7.RecyclerView.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.RecyclerView.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v8.RenderScript, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.v8.RenderScript.23.1.1.1\lib\MonoAndroid403\Xamarin.Android.Support.v8.RenderScript.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Vector.Drawable, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.Vector.Drawable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.2.2.0.45\lib\MonoAndroid10\Xamarin.Forms.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.2.2.0.45\lib\MonoAndroid10\Xamarin.Forms.Platform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform.Android, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.2.2.0.45\lib\MonoAndroid10\Xamarin.Forms.Platform.Android.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.2.2.0.45\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Xamarin.GooglePlayServices.Basement">
+      <HintPath>..\packages\Xamarin.GooglePlayServices.Basement.29.0.0.2\lib\MonoAndroid41\Xamarin.GooglePlayServices.Basement.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.GooglePlayServices.Base">
+      <HintPath>..\packages\Xamarin.GooglePlayServices.Base.29.0.0.2\lib\MonoAndroid41\Xamarin.GooglePlayServices.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.GooglePlayServices.Measurement">
+      <HintPath>..\packages\Xamarin.GooglePlayServices.Measurement.29.0.0.2\lib\MonoAndroid41\Xamarin.GooglePlayServices.Measurement.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.GooglePlayServices.Gcm">
+      <HintPath>..\packages\Xamarin.GooglePlayServices.Gcm.29.0.0.2\lib\MonoAndroid41\Xamarin.GooglePlayServices.Gcm.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCL.raw">
+      <HintPath>..\packages\SQLitePCL.raw_basic.0.7.1\lib\MonoAndroid\SQLitePCL.raw.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite-net">
+      <HintPath>..\packages\sqlite-net-pcl.1.0.11\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLite-net.dll</HintPath>
+    </Reference>
+    <Reference Include="AndHUD">
+      <HintPath>..\Components\AndHUD-1.3.1\lib\android\AndHUD.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Android">
+      <HintPath>..\DroidPdfView\bin\Debug\Mono.Android.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Activities\HomeActivity.cs" />
+    <Compile Include="Activities\InstalmentInfoActivity.cs" />
+    <Compile Include="Activities\LoginActivity.cs" />
+    <Compile Include="Activities\LoginWaitingActivity.cs" />
+    <Compile Include="Activities\MakeCCPaymentActivity.cs" />
+    <Compile Include="Activities\PaymentTrackerActivity.cs" />
+    <Compile Include="Activities\SelectDebtorActivity.cs" />
+    <Compile Include="Activities\SetupPinActivity.cs" />
+    <Compile Include="Activities\SplashActivity.cs" />
+    <Compile Include="Activities\SummaryActivity.cs" />
+    <Compile Include="Activities\VerifyCoDebtorActivity.cs" />
+    <Compile Include="Activities\VerifyDetailActivity.cs" />
+    <Compile Include="Adapter\DebtorSpinnerAdapter.cs" />
+    <Compile Include="Adapter\MenuListAdapter.cs" />
+    <Compile Include="Adapter\PaymentTrackerAdapter.cs" />
+    <Compile Include="Adapter\SetupAdapter.cs" />
+    <Compile Include="Fragment\Setup_Page1.cs" />
+    <Compile Include="Fragment\Setup_Page2.cs" />
+    <Compile Include="Activities\SetupActivity.cs" />
+    <Compile Include="Fragment\HomeFragment.cs" />
+    <Compile Include="Helpers\ActionBarDrawerEventArgs.cs" />
+    <Compile Include="Helpers\Alert.cs" />
+    <Compile Include="Helpers\BitmapHelper.cs" />
+    <Compile Include="Helpers\ColorHelper.cs" />
+    <Compile Include="Helpers\ConnectWebAPI.cs" />
+    <Compile Include="Helpers\CustomDatePickerDialog.cs" />
+    <Compile Include="Helpers\HtmlRemoval.cs" />
+    <Compile Include="Helpers\JavaHolder.cs" />
+    <Compile Include="Helpers\NetworkHelper.cs" />
+    <Compile Include="Helpers\MoneyFormat.cs" />
+    <Compile Include="Helpers\ObjectExtensions.cs" />
+    <Compile Include="Helpers\ProgressBarHelper.cs" />
+    <Compile Include="Helpers\ScreenHelper.cs" />
+    <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="Helpers\Validation.cs" />
+    <Compile Include="Models\Api\CoDebtorModel.cs" />
+    <Compile Include="Models\Api\DebtorInfoModel.cs" />
+    <Compile Include="Models\Api\JsonReturnModel.cs" />
+    <Compile Include="Models\Api\ClientModel.cs" />
+    <Compile Include="Models\Api\PaymentReturnModel.cs" />
+    <Compile Include="Models\Api\PaymentTrackerModel.cs" />
+    <Compile Include="Resources\Resource.Designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\Api\ArrangeDetails.cs" />
+    <Compile Include="Activities\DeferPaymentActivity.cs" />
+    <Compile Include="Activities\ScheduleCallbackActivity.cs" />
+    <Compile Include="Activities\InboxActivity.cs" />
+    <Compile Include="Helpers\SetPayment.cs" />
+    <Compile Include="Activities\SelectPaymentMethodActivity.cs" />
+    <Compile Include="Adapter\PaymentMethodSpinnerAdapter.cs" />
+    <Compile Include="Activities\MakeDDPaymentActivity.cs" />
+    <Compile Include="Activities\SetupScheduleActivity.cs" />
+    <Compile Include="Activities\SendFeedbackActivity.cs" />
+    <Compile Include="Activities\UpdateCreditCardActivity.cs" />
+    <Compile Include="Activities\UpdateBankAccountActivity.cs" />
+    <Compile Include="Activities\UpdatePersonalInformationActivity.cs" />
+    <Compile Include="Activities\FinishActivity.cs" />
+    <Compile Include="Models\Api\PaymentInfo.cs" />
+    <Compile Include="Models\Api\CardInfo.cs" />
+    <Compile Include="Models\Api\BankInfo.cs" />
+    <Compile Include="Models\Api\PersonalInfo.cs" />
+    <Compile Include="Helpers\Keyboard.cs" />
+    <Compile Include="Activities\InstalmentSummaryActivity.cs" />
+    <Compile Include="Models\Api\InstalmentSummaryModel.cs" />
+    <Compile Include="Adapter\InstalmentSummaryAdapter.cs" />
+    <Compile Include="Helpers\JsonHelper.cs" />
+    <Compile Include="Activities\SetupInstalmentActivity.cs" />
+    <Compile Include="Helpers\RegistrationIntentService.cs" />
+    <Compile Include="Helpers\GcmListenerService.cs" />
+    <Compile Include="Helpers\MyInstanceIDListenerService.cs" />
+    <Compile Include="Database\Inbox.cs" />
+    <Compile Include="Database\DAL.cs" />
+    <Compile Include="Adapter\InboxAdapter.cs" />
+    <Compile Include="Models\Api\InboxReturnModel.cs" />
+    <Compile Include="Activities\InboxDetailMessageActivity.cs" />
+    <Compile Include="Activities\InboxDetailLetterActivity.cs" />
+    <Compile Include="Adapter\CallbackTimeSpinnerAdapter.cs" />
+    <Compile Include="Models\Api\CallbackReturnModel.cs" />
+    <Compile Include="Helpers\TrackingHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GettingStarted.Xamarin" />
+    <None Include="packages.config" />
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Assets\AboutAssets.txt" />
+    <AndroidResource Include="Resources\layout\Setup_Page2.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Setup_Page1.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Splash.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\SetupPin.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\LoginWaiting.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Home.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Login.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\NavigationMenu.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\MainContentLayout2.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\SelectDebtor.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\SpinnerItemDropdown.axml" />
+    <AndroidResource Include="Resources\layout\VerifyDetail.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\VerifyCoDebtor.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\MakeCCPayment.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Summary.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\PaymentTracker.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\PaymentTrackerList.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\NoPaymentDeferItem.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\InstalmentInfo.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\DeferPayment.axml" />
+    <AndroidResource Include="Resources\layout\SelectPaymentMethod.axml" />
+    <AndroidResource Include="Resources\layout\MakeDDPayment.axml" />
+    <AndroidResource Include="Resources\layout\SendFeedback.axml" />
+    <AndroidResource Include="Resources\layout\Finish.axml" />
+    <AndroidResource Include="Resources\layout\UpdateCreditCard.axml" />
+    <AndroidResource Include="Resources\layout\UpdateBankAccount.axml" />
+    <AndroidResource Include="Resources\layout\UpdatePersonalInformation.axml" />
+    <AndroidResource Include="Resources\layout\ScheduleCallback.axml" />
+    <AndroidResource Include="Resources\layout\SetupSchedule.axml" />
+    <AndroidResource Include="Resources\layout\SetupInstalment.axml" />
+    <AndroidResource Include="Resources\layout\InstalmentSummary.axml" />
+    <AndroidResource Include="Resources\layout\InstalmentSummaryList.axml" />
+    <AndroidResource Include="Resources\drawable\ButtonTextColor.xml" />
+    <AndroidResource Include="Resources\layout\Inbox.axml" />
+    <AndroidResource Include="Resources\layout\InboxList.axml" />
+    <AndroidResource Include="Resources\layout\InboxDetailMessage.axml" />
+    <AndroidResource Include="Resources\layout\InboxDetailLetter.axml" />
+    <AndroidResource Include="Resources\layout\NoPaymentTrackerItem1.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\NoInbox.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\NoPaymentDeferItem.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\spinner_layout.axml" />
+    <AndroidResource Include="Resources\layout\NoPaymentTrackerItem2.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Main.axml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\Strings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AndroidManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="GCMClient">
+      <Visible>False</Visible>
+      <Version>1.0</Version>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="hscroll">
+      <Visible>False</Visible>
+      <Version>1.1.1</Version>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="json.net">
+      <Visible>False</Visible>
+      <Version>7.0.1</Version>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="SettingsPlugin">
+      <Visible>False</Visible>
+      <Version>1.5.2</Version>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="xamandroidsupportv4-18">
+      <Visible>False</Visible>
+      <Version>23.1.1.1</Version>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="xamandroidsupportv7appcompat">
+      <Visible>False</Visible>
+      <Version>23.1.1.1</Version>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="xamandroidsupportv8">
+      <Visible>False</Visible>
+      <Version>23.1.1.1</Version>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="sqlite-net">
+      <Version>1.0.11</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="AndHUD">
+      <Version>1.3.1</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\styles_themecustom.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\anim\animator.xml" />
+    <AndroidResource Include="Resources\anim\animator_set.xml" />
+    <AndroidResource Include="Resources\anim\color_animator.xml" />
+    <AndroidResource Include="Resources\anim\cycle_7.xml" />
+    <AndroidResource Include="Resources\anim\fade.xml" />
+    <AndroidResource Include="Resources\anim\hold.xml" />
+    <AndroidResource Include="Resources\anim\hyperspace_in.xml" />
+    <AndroidResource Include="Resources\anim\hyperspace_out.xml" />
+    <AndroidResource Include="Resources\anim\layout_animation_row_left_slide.xml" />
+    <AndroidResource Include="Resources\anim\layout_animation_row_right_slide.xml" />
+    <AndroidResource Include="Resources\anim\layout_animation_table.xml" />
+    <AndroidResource Include="Resources\anim\layout_bottom_to_top_slide.xml" />
+    <AndroidResource Include="Resources\anim\layout_grid_fade.xml" />
+    <AndroidResource Include="Resources\anim\layout_grid_inverse_fade.xml" />
+    <AndroidResource Include="Resources\anim\layout_random_fade.xml" />
+    <AndroidResource Include="Resources\anim\layout_wave_scale.xml" />
+    <AndroidResource Include="Resources\anim\object_animator.xml" />
+    <AndroidResource Include="Resources\anim\push_left_in.xml" />
+    <AndroidResource Include="Resources\anim\push_left_out.xml" />
+    <AndroidResource Include="Resources\anim\push_up_in.xml" />
+    <AndroidResource Include="Resources\anim\push_up_out.xml" />
+    <AndroidResource Include="Resources\anim\rotate_center.xml" />
+    <AndroidResource Include="Resources\anim\shake.xml" />
+    <AndroidResource Include="Resources\anim\slide_in_top.xml" />
+    <AndroidResource Include="Resources\anim\slide_left.xml" />
+    <AndroidResource Include="Resources\anim\slide_out_bottom.xml" />
+    <AndroidResource Include="Resources\anim\slide_right.xml" />
+    <AndroidResource Include="Resources\anim\slide_top_to_bottom.xml" />
+    <AndroidResource Include="Resources\anim\wave_scale.xml" />
+    <AndroidResource Include="Resources\anim\zoom_enter.xml" />
+    <AndroidResource Include="Resources\anim\zoom_exit.xml" />
+    <AndroidResource Include="Resources\drawable\textview_border.xml" />
+    <AndroidResource Include="Resources\drawable\Check.png" />
+    <AndroidResource Include="Resources\drawable\payment_tracker.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\drawer_shadow_dark.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\drawer_shadow_light.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_drawer_dark.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_drawer_light.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_menu_refresh.png" />
+    <AndroidResource Include="Resources\Menu\RefeshMenu.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\action_menu.png" />
+    <AndroidResource Include="Resources\values\Color.xml" />
+    <AndroidResource Include="Resources\drawable\Lock.png" />
+    <AndroidResource Include="Resources\drawable\ab_background_textured_themecustom.xml" />
+    <AndroidResource Include="Resources\drawable\btn_cab_done_themecustom.xml" />
+    <AndroidResource Include="Resources\drawable\progress_horizontal_themecustom.xml" />
+    <AndroidResource Include="Resources\drawable\selectable_background_themecustom.xml" />
+    <AndroidResource Include="Resources\drawable\spinner_background_ab_themecustom.xml" />
+    <AndroidResource Include="Resources\drawable\tab_indicator_ab_themecustom.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\ab_bottom_solid_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ab_solid_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ab_stacked_solid_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ab_texture_tile_themecustom.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ab_transparent_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\btn_cab_done_default_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\btn_cab_done_focused_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\btn_cab_done_pressed_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\cab_background_bottom_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\cab_background_top_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\list_focused_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\list_pressed_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\menu_dropdown_panel_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\progress_bg_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\progress_primary_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\progress_secondary_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\spinner_ab_default_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\spinner_ab_disabled_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\spinner_ab_focused_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\spinner_ab_pressed_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\tab_selected_focused_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\tab_selected_pressed_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\tab_selected_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\tab_unselected_focused_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\tab_unselected_pressed_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\tab_unselected_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ab_bottom_solid_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ab_solid_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ab_stacked_solid_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ab_texture_tile_themecustom.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ab_transparent_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\btn_cab_done_default_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\btn_cab_done_focused_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\btn_cab_done_pressed_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\cab_background_bottom_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\cab_background_top_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\list_focused_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\list_pressed_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\menu_dropdown_panel_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\progress_bg_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\progress_primary_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\progress_secondary_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\spinner_ab_default_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\spinner_ab_disabled_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\spinner_ab_focused_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\spinner_ab_pressed_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\tab_selected_focused_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\tab_selected_pressed_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\tab_selected_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\tab_unselected_focused_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\tab_unselected_pressed_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\tab_unselected_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ab_bottom_solid_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ab_solid_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ab_stacked_solid_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ab_texture_tile_themecustom.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ab_transparent_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\btn_cab_done_default_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\btn_cab_done_focused_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\btn_cab_done_pressed_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\cab_background_bottom_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\cab_background_top_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\list_focused_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\list_pressed_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\menu_dropdown_panel_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\progress_bg_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\progress_primary_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\progress_secondary_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\spinner_ab_default_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\spinner_ab_disabled_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\spinner_ab_focused_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\spinner_ab_pressed_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\tab_selected_focused_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\tab_selected_pressed_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\tab_selected_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\tab_unselected_focused_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\tab_unselected_pressed_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\tab_unselected_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ab_bottom_solid_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ab_solid_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ab_stacked_solid_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ab_texture_tile_themecustom.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ab_transparent_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\btn_cab_done_default_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\btn_cab_done_focused_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\btn_cab_done_pressed_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\cab_background_bottom_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\cab_background_top_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\list_focused_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\list_pressed_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\menu_dropdown_panel_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\progress_bg_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\progress_primary_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\progress_secondary_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\spinner_ab_default_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\spinner_ab_disabled_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\spinner_ab_focused_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\spinner_ab_pressed_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\tab_selected_focused_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\tab_selected_pressed_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\tab_selected_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\tab_unselected_focused_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\tab_unselected_pressed_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\tab_unselected_themecustom.9.png" />
+    <AndroidResource Include="Resources\drawable\make_payment.png" />
+    <AndroidResource Include="Resources\drawable\defer_payment.png" />
+    <AndroidResource Include="Resources\drawable\instalment_info.png" />
+    <AndroidResource Include="Resources\drawable\schedule_callback.png" />
+    <AndroidResource Include="Resources\drawable\inbox.png" />
+    <AndroidResource Include="Resources\drawable\bank.png" />
+    <AndroidResource Include="Resources\drawable\card.png" />
+    <AndroidResource Include="Resources\drawable\personal.png" />
+    <AndroidResource Include="Resources\drawable\visa.png" />
+    <AndroidResource Include="Resources\drawable\master.png" />
+    <AndroidResource Include="Resources\drawable\Master_Color.png" />
+    <AndroidResource Include="Resources\drawable\Visa_Color.png" />
+    <AndroidResource Include="Resources\drawable\ButtonBackgroundColor.xml" />
+    <AndroidResource Include="Resources\drawable\bg_focused.xml" />
+    <AndroidResource Include="Resources\drawable\bg_selected.xml" />
+    <AndroidResource Include="Resources\drawable\bg_unselected.xml" />
+    <AndroidResource Include="Resources\drawable\ButtonState.xml" />
+    <AndroidResource Include="Resources\drawable\red.png" />
+    <AndroidResource Include="Resources\drawable\green.png" />
+    <AndroidResource Include="Resources\drawable\blue.png" />
+    <AndroidResource Include="Resources\drawable\yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\theme\" />
+    <Folder Include="Database\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DroidPdfView\DroidPdfView.csproj">
+      <Project>{25DF1512-B92B-4D7D-B499-BE5E7FA48E0D}</Project>
+      <Name>DroidPdfView</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Forms.2.2.0.45\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.2.2.0.45\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets'))" />
+  </Target>
+  <Import Project="..\packages\Xamarin.Forms.2.2.0.45\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.2.0.45\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+     Other similar extension points exist, see Microsoft.Common.targets.
+		<Target Name="BeforeBuild">
+		</Target>
+		<Target Name="AfterBuild">
+		</Target>
+ -->
+  <Import Project="..\packages\Xamarin.GooglePlayServices.Basement.29.0.0.2\build\Xamarin.GooglePlayServices.Basement.targets" Condition="Exists('..\packages\Xamarin.GooglePlayServices.Basement.29.0.0.2\build\Xamarin.GooglePlayServices.Basement.targets')" />
+</Project>

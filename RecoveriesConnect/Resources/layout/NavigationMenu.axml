@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:layout_height="fill_parent"
+    android:background="#006571"
+    android:id="@+id/FlyOutMenu"
+    android:padding="4dp">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/menu_Project"
+        android:background="#006571"
+        android:layout_margin="2dp">
+        <ImageView
+            android:src="@drawable/icon"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:id="@+id/imageView_Menu" />
+        <TextView
+            android:text="Project"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_MenuName"
+            android:layout_gravity="center"
+            android:layout_marginLeft="4dp"
+            android:textColor="@drawable/ButtonTextColor"
+            android:gravity="center_vertical" />
+    </LinearLayout>
+</LinearLayout>

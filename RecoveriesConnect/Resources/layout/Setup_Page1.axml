@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    <ImageView
+        android:src="@drawable/logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/iv_Logo"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:layout_alignParentTop="true" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <TextView
+            android:text="RecoveriesConnect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1"
+            android:textColor="#006571"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="35dp"
+            android:layout_marginBottom="10dp" />
+        <TextView
+            android:text="The hassle free, speedy &amp; secure way to manage your recoveriescorp instalment plan all in the palm of your hand."
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_Message"
+            android:textColor="#006571"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" />
+    </LinearLayout>
+    <Button
+        android:text="&lt; Slide next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonNext"
+        android:textColor="#006571"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffffff" />
+</RelativeLayout>
