@@ -23,7 +23,7 @@ namespace RecoveriesConnect.Adapter
         public SetupAdapter(Android.Support.V4.App.FragmentManager fm, ViewPager pager) : base(fm)
         {
             this.fragments = new List<Android.Support.V4.App.Fragment>();
-            fragments.Add(new Setup_Page1(pager));
+            //fragments.Add(new Setup_Page1(pager));
             fragments.Add(new Setup_Page2());
 
             fragmentCount = fragments.Count;
