@@ -166,6 +166,7 @@ namespace RecoveriesConnect.Activities
 						err_FirstAmount.Text = Resources.GetString(Resource.String.AmountLessThanRequired);
 						IsValidate = false;
 					}
+
 					if (amountValue > Settings.TotalOutstanding)
 					{
 						err_FirstAmount.Text = Resources.GetString(Resource.String.AmountLessThanOutStanding);

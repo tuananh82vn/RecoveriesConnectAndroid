@@ -187,7 +187,6 @@ namespace RecoveriesConnect.Fragment
 
         private void ln_make_paymentTouch(object sender, View.TouchEventArgs touchEventArgs)
         {
-
             switch (touchEventArgs.Event.Action & MotionEventActions.Mask)
             {
                 case MotionEventActions.Down:
@@ -201,11 +200,11 @@ namespace RecoveriesConnect.Fragment
 
                     ln_make_payment.SetBackgroundColor(Color.ParseColor("#006571"));
 
-					SetPayment.Set("other");
+					//SetPayment.Set("other");
 
 					AndHUD.Shared.Show(this.Activity, "Please wait ...", -1, MaskType.Clear);
 
-					Intent make_payment = new Intent(this.Activity, typeof(MakeCCPaymentActivity));
+					Intent make_payment = new Intent(this.Activity, typeof(MakePaymentActivity));
                     StartActivity(make_payment);
 
 					AndHUD.Shared.Dismiss();
@@ -215,7 +214,6 @@ namespace RecoveriesConnect.Fragment
                 default:
                     break;
             }
-
         }
 
         private void Ln_payment_tracker_Touch(object sender, View.TouchEventArgs touchEventArgs)

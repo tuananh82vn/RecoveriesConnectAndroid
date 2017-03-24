@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <Button
+            android:text="Pay an Amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/bt_Pay"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:textColor="@drawable/ButtonTextColor"
+            android:background="#006571"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp" />
+        <Button
+            android:text="Create Instalment Plan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/bt_Create"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:textColor="@drawable/ButtonTextColor"
+            android:background="#006571"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp" />
+    </LinearLayout>
+</RelativeLayout>

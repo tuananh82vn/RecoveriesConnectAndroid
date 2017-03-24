@@ -194,6 +194,7 @@
     <Compile Include="Activities\LoginActivity.cs" />
     <Compile Include="Activities\LoginWaitingActivity.cs" />
     <Compile Include="Activities\MakeCCPaymentActivity.cs" />
+    <Compile Include="Activities\MakePaymentActivity.cs" />
     <Compile Include="Activities\PaymentTrackerActivity.cs" />
     <Compile Include="Activities\PrivacyPolicyActivity.cs" />
     <Compile Include="Activities\SelectDebtorActivity.cs" />
@@ -368,6 +369,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\ContactUs.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\MakePayment.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
