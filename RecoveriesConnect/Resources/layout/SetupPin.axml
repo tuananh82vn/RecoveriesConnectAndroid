@@ -19,6 +19,19 @@
             android:layout_alignParentTop="true"
             android:paddingTop="10dp" />
         <TextView
+            android:text="RecoveriesConnect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewLogo"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textColor="#006571"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="35dp"
+            android:layout_marginBottom="10dp" />
+        <TextView
             android:text="Enter the PIN you will use to access recoveriesconnect"
             android:layout_width="match_parent"
             android:layout_height="60dp"

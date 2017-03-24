@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="CopyRight">Copyright - Synotive @2016</string>
+    <string name="CopyRight">Copyright © 2017 Synotive. All rights reserved.</string>
     <string name="WelcomeMessage">The hassle free, speedy &#038; secure way to manage your recoveriescorp instalment plan all in the palm of your hand.</string>
     <string name="ResetMessage">Recoveriesconnect will be reset - you will need to verify and setup again. Continue?</string>
     <string name="NoConnection">No connections are available</string>

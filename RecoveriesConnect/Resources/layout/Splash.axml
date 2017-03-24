@@ -7,11 +7,12 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:backgroundTint="#ffffffff">
         <ImageView
             android:id="@+id/floating_image"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="132.3dp"
             android:src="@drawable/logo"
             android:paddingLeft="5dp"
             android:paddingRight="5dp" />
