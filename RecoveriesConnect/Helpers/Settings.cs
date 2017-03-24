@@ -41,8 +41,17 @@ namespace RecoveriesConnect.Helpers
 		private const string RefNumberKey = "RefNumberKey";
 		private static readonly string RefNumberKey_Default = string.Empty;
 
+        private const string ClientAccountNumberKey = "ClientAccountNumberKey";
+        private static readonly string ClientAccountNumberKey_Default = string.Empty;
+
+        private const string OurClientKey = "OurClientKey";
+        private static readonly string OurClientKey_Default = string.Empty;
+
         private const string IsAlreadySetupPinKey = "IsAlreadySetupPinKey";
         private static readonly bool IsAlreadySetupPinKey_Default = false;
+
+        private const string IsAgreePolicyKey = "IsAgreePolicyKey";
+        private static readonly bool IsAgreePolicyKey_Default = false;
 
         private const string IsCoBorrowersKey = "IsCoBorrowersKey";
         private static readonly bool IsCoBorrowersKey_Default = false;
@@ -163,10 +172,28 @@ namespace RecoveriesConnect.Helpers
 			set { AppSettings.AddOrUpdateValue(RefNumberKey, value); }
 		}
 
+        public static string OurClient
+        {
+            get { return AppSettings.GetValueOrDefault(OurClientKey, OurClientKey_Default); }
+            set { AppSettings.AddOrUpdateValue(OurClientKey, value); }
+        }
+
+        public static string ClientAccountNumber
+        {
+            get { return AppSettings.GetValueOrDefault(ClientAccountNumberKey, ClientAccountNumberKey_Default); }
+            set { AppSettings.AddOrUpdateValue(ClientAccountNumberKey, value); }
+        }
+
         public static bool IsAlreadySetupPin
         {
             get { return AppSettings.GetValueOrDefault(IsAlreadySetupPinKey, IsAlreadySetupPinKey_Default); }
             set { AppSettings.AddOrUpdateValue(IsAlreadySetupPinKey, value); }
+        }
+
+        public static bool IsAgreePolicy
+        {
+            get { return AppSettings.GetValueOrDefault(IsAgreePolicyKey, IsAgreePolicyKey_Default); }
+            set { AppSettings.AddOrUpdateValue(IsAgreePolicyKey, value); }
         }
 
         public static bool IsCoBorrowers {

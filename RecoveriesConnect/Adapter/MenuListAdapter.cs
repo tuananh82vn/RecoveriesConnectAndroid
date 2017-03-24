@@ -26,28 +26,28 @@ namespace RecoveriesConnect.Adapter
 
 			this.items = new List<MenuItem>() {
 				new MenuItem() { Name = "Main",     Img = Resource.Drawable.make_payment ,  Type="divider"}, //0
-				new MenuItem() { Name = "Pay In Full", Img = Resource.Drawable.make_payment ,     Type="item"}, //1
-				new MenuItem() { Name = "Setup Schedule Payment", Img = Resource.Drawable.make_payment ,     Type="item"}, //2
-				new MenuItem() { Name = "Provide Feedback",     Img = Resource.Drawable.instalment_info ,  Type="item" }, //3
+				new MenuItem() { Name = "Provide Feedback",     Img = Resource.Drawable.Quote ,  Type="item" }, //1
+                new MenuItem() { Name = "About",     Img = Resource.Drawable.instalment_info ,  Type="item" }, //2
+                new MenuItem() { Name = "Contact Us",     Img = Resource.Drawable.Phone ,  Type="item" }, //3
 				new MenuItem() { Name = "Settings",     Img = Resource.Drawable.make_payment ,  Type="divider"}, //4
 				new MenuItem() { Name = "View/Update Credit Card",     Img = Resource.Drawable.card ,  Type="item" }, //5
 				new MenuItem() { Name = "View/Update Bank Account",     Img = Resource.Drawable.bank ,  Type="item" }, //6
 				new MenuItem() { Name = "View/Update Information",     Img = Resource.Drawable.personal ,  Type="item" }, //7
 			};
 
-			if (Settings.IsExistingArrangement || Settings.IsExistingArrangementCC || Settings.IsExistingArrangementDD)
-			{
+            //if (Settings.IsExistingArrangement || Settings.IsExistingArrangementCC || Settings.IsExistingArrangementDD)
+            //{
 
-				//new MenuItem() { Name = "Main", Img = Resource.Drawable.make_payment, Type = "divider" }, //0
-				//new MenuItem() { Name = "Pay In Full", Img = Resource.Drawable.make_payment, Type = "item" }, //1
-				//new MenuItem() { Name = "Provide Feedback", Img = Resource.Drawable.instalment_info, Type = "item" }, //2
-				//new MenuItem() { Name = "Settings", Img = Resource.Drawable.make_payment, Type = "divider" }, //3
-				//new MenuItem() { Name = "View/Update Credit Card", Img = Resource.Drawable.card, Type = "item" }, //4
-				//new MenuItem() { Name = "View/Update Bank Account", Img = Resource.Drawable.bank, Type = "item" }, //5
-				//new MenuItem() { Name = "View/Update Information", Img = Resource.Drawable.personal, Type = "item" }, //6
+            //new MenuItem() { Name = "Main", Img = Resource.Drawable.make_payment, Type = "divider" }, //0
+            //new MenuItem() { Name = "Pay In Full", Img = Resource.Drawable.make_payment, Type = "item" }, //1
+            //new MenuItem() { Name = "Provide Feedback", Img = Resource.Drawable.instalment_info, Type = "item" }, //2
+            //new MenuItem() { Name = "Settings", Img = Resource.Drawable.make_payment, Type = "divider" }, //3
+            //new MenuItem() { Name = "View/Update Credit Card", Img = Resource.Drawable.card, Type = "item" }, //4
+            //new MenuItem() { Name = "View/Update Bank Account", Img = Resource.Drawable.bank, Type = "item" }, //5
+            //new MenuItem() { Name = "View/Update Information", Img = Resource.Drawable.personal, Type = "item" }, //6
 
-				this.items.RemoveAt(2);
-			}
+            //	this.items.RemoveAt(2);
+            //}
         }
 
         public override int Count

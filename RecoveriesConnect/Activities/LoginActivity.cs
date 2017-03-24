@@ -122,7 +122,8 @@ namespace RecoveriesConnect.Activities
 			Settings.MaxNoPay = 0;
 			Settings.TotalPaid = 0;
 			Settings.IsAlreadySetupPin = false;
-			Settings.TotalOverDue = 0;
+            Settings.IsAgreePolicy = false;
+            Settings.TotalOverDue = 0;
 			Settings.WeeklyAmount = 0;
 			Settings.MonthlyAmount = 0;
 			Settings.FortnightAmount = 0;
@@ -140,8 +141,10 @@ namespace RecoveriesConnect.Activities
 			Settings.ArrangementDebtor = "";
 			Settings.ThreePartDurationDays = 0;
 			Settings.IsAllowMonthlyInstallment = false;
+            Settings.OurClient = "";
+            Settings.ClientAccountNumber = "";
 
-			Settings.FirstAmountOfInstallment = 0;
+            Settings.FirstAmountOfInstallment = 0;
 			Settings.NextPaymentInstallment = 0;
 
 			Settings.MakePaymentOtherAmount = false;

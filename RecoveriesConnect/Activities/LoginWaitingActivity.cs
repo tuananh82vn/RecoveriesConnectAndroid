@@ -107,8 +107,10 @@ namespace RecoveriesConnect.Activities
                     Settings.WeeklyAmount = debtor.MinimumWeeklyOutstanding;
                     Settings.MonthlyAmount = debtor.MinimumMonthlyOutstanding;
                     Settings.FortnightAmount = debtor.MinimumFortnightlyOutstanding;
+                    Settings.ClientAccountNumber = debtor.ClientAccNo;
+                    Settings.OurClient = debtor.ClientName;
 
-                    if(debtor.MaxNoPay > 3)
+                    if (debtor.MaxNoPay > 3)
                     {
                         Settings.MaxNoPay = 3;
                     }

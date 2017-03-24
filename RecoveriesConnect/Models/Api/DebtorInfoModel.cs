@@ -260,5 +260,7 @@ namespace RecoveriesConnect.Models.Api
 
         public PaymentTrackerModel[] InstalmentScheduleList { get; set; }
 
+        public string ClientAccNo { get; set; }
+
     }
 }

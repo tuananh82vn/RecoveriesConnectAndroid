@@ -20,6 +20,8 @@ namespace RecoveriesConnect.Fragment
 {
     public class HomeFragment : Android.Support.V4.App.Fragment
     {
+        TextView tv_AccountNumber;
+        TextView tv_OurClient;
         TextView tv_RefNumber;
         TextView tv_OutStanding;
         TextView tv_NextInstalment;
@@ -47,8 +49,13 @@ namespace RecoveriesConnect.Fragment
 
             var view = inflater.Inflate(Resource.Layout.MainContentLayout2, null);
 
-            tv_RefNumber = view.FindViewById<TextView>(Resource.Id.tv_RefNumber);
+            tv_AccountNumber = view.FindViewById<TextView>(Resource.Id.tv_ClientAccountNumber);
+            tv_AccountNumber.Text = Settings.ClientAccountNumber;
 
+            tv_OurClient = view.FindViewById<TextView>(Resource.Id.tv_OurClient);
+            tv_OurClient.Text = Settings.OurClient;
+
+            tv_RefNumber = view.FindViewById<TextView>(Resource.Id.tv_RefNumber);
             tv_RefNumber.Text = Settings.RefNumber;
 
             tv_OutStanding = view.FindViewById<TextView>(Resource.Id.tv_OutStanding);
@@ -56,7 +63,8 @@ namespace RecoveriesConnect.Fragment
 
 
             tv_NextInstalment = view.FindViewById<TextView>(Resource.Id.tv_NextInstalment);
-			ll_NextInstalment = view.FindViewById<LinearLayout>(Resource.Id.ll_NextInstalment);
+
+			ll_NextInstalment = view.FindViewById<LinearLayout>(Resource.Id.ll_NextInstalment_0);
 
 			if (Settings.NextPaymentInstallment > 0)
 			{

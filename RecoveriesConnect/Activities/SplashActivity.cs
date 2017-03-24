@@ -66,13 +66,20 @@ namespace RecoveriesConnect.Activities
 
                 Thread.Sleep(2000);
                 //Settings.IsAlreadySetupPin = false;
+
                 if (!Settings.IsAlreadySetupPin)
                 {
-                    StartActivity(typeof(SetupActivity));
+                        StartActivity(typeof(SetupActivity));
                 }
                 else
                 {
-                    StartActivity(typeof(LoginActivity));
+                    if (!Settings.IsAgreePolicy)
+                    {
+                        StartActivity(typeof(PrivacyPolicyActivity));
+
+                    }
+                    else
+                        StartActivity(typeof(LoginActivity));
                 }
                 this.Finish();
             });

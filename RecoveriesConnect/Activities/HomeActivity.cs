@@ -168,72 +168,46 @@ namespace RecoveriesConnect.Activities
             Intent activity = null;
             switch (position)
             {
-                //case 0:
-                //    activity = new Intent(this, typeof(LoginActivity));
-                //    StartActivity(activity);
-                //    break;
-				case 1:
-					SetPayment.Set("full");
-					activity = new Intent(this, typeof(SelectPaymentMethodActivity));
+                case 1:
+
+                    activity = new Intent(this, typeof(SendFeedbackActivity));
+                    StartActivity(activity);
+                    break;
+
+                case 2:
+
+					activity = new Intent(this, typeof(AboutActivity));
 					StartActivity(activity);
 					break;
-				case 2:
-					if (Settings.IsExistingArrangement || Settings.IsExistingArrangementCC || Settings.IsExistingArrangementDD)
-					{
-						activity = new Intent(this, typeof(SendFeedbackActivity));
-						StartActivity(activity);
-					}
-					else
-					{
-						activity = new Intent(this, typeof(SetupScheduleActivity));
-						StartActivity(activity);
-					}
-					break;
+
 				case 3:
-					if (Settings.IsExistingArrangement || Settings.IsExistingArrangementCC || Settings.IsExistingArrangementDD)
-					{
-					}
-					else
-					{
-						activity = new Intent(this, typeof(SendFeedbackActivity));
-						StartActivity(activity);
-					}
+
+					activity = new Intent(this, typeof(ContactUsActivity));
+					StartActivity(activity);
 					break;
+
 				case 4:
-					if (Settings.IsExistingArrangement || Settings.IsExistingArrangementCC || Settings.IsExistingArrangementDD)
-					{
-						activity = new Intent(this, typeof(UpdateCreditCardActivity));
-						StartActivity(activity);
-					}
+
+                    break;
+
+                case 5:
+
+					activity = new Intent(this, typeof(UpdateCreditCardActivity));
+					StartActivity(activity);
+                    break;
+
+                case 6:
+
+					activity = new Intent(this, typeof(UpdateBankAccountActivity));
+					StartActivity(activity);
 					break;
-				case 5:
-					if (Settings.IsExistingArrangement || Settings.IsExistingArrangementCC || Settings.IsExistingArrangementDD)
-					{
-						activity = new Intent(this, typeof(UpdateBankAccountActivity));
-						StartActivity(activity);
-					}
-					else
-					{
-						activity = new Intent(this, typeof(UpdateCreditCardActivity));
-						StartActivity(activity);
-					}
-					break;
-				case 6:
-					if (Settings.IsExistingArrangement || Settings.IsExistingArrangementCC || Settings.IsExistingArrangementDD)
-					{
-						activity = new Intent(this, typeof(UpdatePersonalInformationActivity));
-						StartActivity(activity);
-					}
-					else
-					{
-						activity = new Intent(this, typeof(UpdateBankAccountActivity));
-						StartActivity(activity);
-					}
-					break;
+
 				case 7:
+
 					activity = new Intent(this, typeof(UpdatePersonalInformationActivity));
 					StartActivity(activity);
 					break;
+
             }
 
             this.drawerLayout.CloseDrawers();

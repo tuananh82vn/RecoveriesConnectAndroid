@@ -168,8 +168,10 @@ namespace RecoveriesConnect.Activities
 							this.HideKeyboard(et_Pin);
                             Settings.PinNumber = this.FirstPin;
                             Settings.IsAlreadySetupPin = true;
-                            StartActivity(typeof(LoginWaitingActivity));
-							this.Finish();
+
+                            //StartActivity(typeof(LoginWaitingActivity));
+                            StartActivity(typeof(PrivacyPolicyActivity));
+                            this.Finish();
                         }
                         else
                         {
