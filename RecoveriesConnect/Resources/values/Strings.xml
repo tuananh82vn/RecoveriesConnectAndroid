@@ -38,8 +38,7 @@
     <string name="AccountNumberInLength">Account Number should be from 5 to 15 numeric characters in length</string>
   
     <string name="EnterAccountNumber">Please enter Account Number</string>
-    <string name="EnterBSB1">Please enter BSB 1</string>
-    <string name="EnterBSB2">Please enter BSB 2</string>
+    <string name="EnterBSB">Please enter BSB Number</string>
     <string name="EnterAccountName">Please enter Account Name</string>
     <string name="EnterAmount">Please enter amount</string>
     <string name="AmountLessThanRequired">Payment amount is less than the minimum required</string>
@@ -71,8 +70,7 @@
 
     
 
-    <string name="BSB1Invalid">The BSB number 1 is not valid</string>
-    <string name="BSB2Invalid">The BSB number 2 is not valid</string>
+    <string name="BSBInvalid">The BSB number is not valid</string>
     <string name="AccountNameInvalid">Account Name is not valid</string>
     <string name="AccountNumberInvalid">Account Number should be from 5 to 15 numeric characters</string>
   

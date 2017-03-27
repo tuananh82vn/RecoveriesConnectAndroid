@@ -123,35 +123,35 @@ namespace RecoveriesConnect
 
 			if (et_BSB1.Text.Length == 0)
 			{
-				err_BSB1.Text = Resources.GetString(Resource.String.EnterBSB1);
+				err_BSB1.Text = Resources.GetString(Resource.String.EnterBSB);
 				IsValidate = false;
 			}
 			else
 			{
 				if (et_BSB1.Text.Length != 3)
 				{
-					err_BSB1.Text = Resources.GetString(Resource.String.BSB1Invalid);
+					err_BSB1.Text = Resources.GetString(Resource.String.BSBInvalid);
 					IsValidate = false;
 				}
 			}
 
-			if (et_BSB2.Text.Length == 0)
-			{
-				err_BSB2.Text = Resources.GetString(Resource.String.EnterBSB2);
-				IsValidate = false;
-			}
-			else
-			{
-				if (et_BSB2.Text.Length != 3)
-				{
-					err_BSB2.Text = Resources.GetString(Resource.String.BSB2Invalid);
-					IsValidate = false;
-				}
-			}
+			//if (et_BSB2.Text.Length == 0)
+			//{
+			//	err_BSB2.Text = Resources.GetString(Resource.String.EnterBSB2);
+			//	IsValidate = false;
+			//}
+			//else
+			//{
+			//	if (et_BSB2.Text.Length != 3)
+			//	{
+			//		err_BSB2.Text = Resources.GetString(Resource.String.BSB2Invalid);
+			//		IsValidate = false;
+			//	}
+			//}
 
 			if (et_AccountNumber.Text.Length == 0)
 			{
-				err_AccountNumber.Text = Resources.GetString(Resource.String.EnterBSB2);
+				err_AccountNumber.Text = Resources.GetString(Resource.String.EnterAccountNumber);
 				IsValidate = false;
 			}
 			else

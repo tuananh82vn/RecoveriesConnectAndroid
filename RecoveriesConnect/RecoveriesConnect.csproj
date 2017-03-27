@@ -620,6 +620,10 @@
       <Project>{25DF1512-B92B-4D7D-B499-BE5E7FA48E0D}</Project>
       <Name>DroidPdfView</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MaskedEditText\MaskedEditText.csproj">
+      <Project>{53c5cd05-46ff-42f4-a3a4-5e9f6de3a17e}</Project>
+      <Name>MaskedEditText</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\logo_colour.png" />

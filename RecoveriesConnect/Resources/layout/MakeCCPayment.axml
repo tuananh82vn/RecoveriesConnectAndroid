@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:local="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical">
@@ -12,7 +13,7 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/linearLayout1"
+            android:id="@+id/ll1"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp">
             <TextView
@@ -36,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:id="@+id/linearLayout2">
+            android:id="@+id/ll2">
             <TextView
                 android:layout_width="99dp"
                 android:layout_height="match_parent"
@@ -54,12 +55,12 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/linearLayout1"
+            android:id="@+id/ll3"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp">
             <TextView
-                android:text="Card Type"
-                android:layout_width="99.0dp"
+                android:text="Payment Method"
+                android:layout_width="110dp"
                 android:layout_height="match_parent"
                 android:id="@+id/textView3"
                 android:gravity="center_vertical" />
@@ -71,18 +72,23 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:gravity="center">
-                <ImageButton
-                    android:layout_width="40dp"
+                <Button
+                    android:layout_width="100dp"
                     android:layout_height="40dp"
-                    android:id="@+id/bt_Visa"
-                    android:background="@drawable/visa"
-                    android:layout_marginRight="30dp" />
-                <ImageButton
-                    android:layout_width="40dp"
+                    android:id="@+id/bt_CreditCard"
+                    android:layout_marginRight="2dp"
+                    android:text="Credit Card"
+                    android:textSize="14dp"
+                    android:background="#006571"
+                    android:textColor="#fff" />
+                <Button
+                    android:layout_width="100dp"
                     android:layout_height="40dp"
-                    android:id="@+id/bt_Master"
-                    android:background="@drawable/master"
-                    android:layout_marginLeft="30dp" />
+                    android:id="@+id/bt_DirectDebit"
+                    android:layout_marginLeft="2dp"
+                    android:text="Direct Debit"
+                    android:textSize="14dp"
+                    android:textColor="#000" />
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -93,7 +99,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:id="@+id/linearLayout2">
+            android:id="@+id/ll4">
             <TextView
                 android:layout_width="99dp"
                 android:layout_height="match_parent"
@@ -103,181 +109,368 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/err_CardType"
+                android:id="@+id/err_PaymentMethod"
                 android:gravity="center_vertical"
                 android:textColor="@color/red" />
         </LinearLayout>
         <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/linearLayout1"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
-            <TextView
-                android:text="Name On Card"
-                android:layout_width="99.0dp"
-                android:layout_height="match_parent"
-                android:id="@+id/textView3"
-                android:gravity="center_vertical" />
-            <EditText
+            android:orientation="vertical"
+            android:id="@+id/ll_CreditCard"
+            android:gravity="top">
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/et_NameOnCard"
-                android:inputType="textCapWords"
-                android:capitalize="words" />
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+                <TextView
+                    android:text="Card Type"
+                    android:layout_width="99.0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView3"
+                    android:gravity="center_vertical" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/linearLayout1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center">
+                    <ImageButton
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/bt_Visa"
+                        android:background="@drawable/visa"
+                        android:layout_marginRight="30dp" />
+                    <ImageButton
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/bt_Master"
+                        android:background="@drawable/master"
+                        android:layout_marginLeft="30dp" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+                <TextView
+                    android:layout_width="99dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView4"
+                    android:gravity="center_vertical"
+                    android:visibility="invisible" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/err_CardType"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/red" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+                <TextView
+                    android:text="Name On Card"
+                    android:layout_width="99.0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView3"
+                    android:gravity="center_vertical" />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/et_NameOnCard"
+                    android:inputType="textCapWords"
+                    android:capitalize="words" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+                <TextView
+                    android:layout_width="99dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView4"
+                    android:gravity="center_vertical"
+                    android:visibility="invisible" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/err_NameOnCard"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/red" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+                <TextView
+                    android:text="Card Number"
+                    android:layout_width="99.0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView3"
+                    android:gravity="center_vertical" />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/et_CardNumber"
+                    android:numeric="integer"
+                    android:maxLength="16"
+                    android:inputType="number" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+                <TextView
+                    android:layout_width="99dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView4"
+                    android:gravity="center_vertical"
+                    android:visibility="invisible" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/err_CardNumber"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/red" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+                <TextView
+                    android:text="Expiry"
+                    android:layout_width="99.0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView3"
+                    android:gravity="center_vertical" />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/et_ExpiryMonth"
+                    android:clickable="true"
+                    android:cursorVisible="false"
+                    android:focusable="false" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+                <TextView
+                    android:layout_width="99dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView4"
+                    android:gravity="center_vertical"
+                    android:visibility="invisible" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/err_Expiry"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/red" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+                <TextView
+                    android:text="CVV"
+                    android:layout_width="99.0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView3"
+                    android:gravity="center_vertical" />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/et_CVV"
+                    android:numeric="integer"
+                    android:maxLength="3"
+                    android:inputType="number"
+                    android:password="true" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+                <TextView
+                    android:layout_width="99dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView4"
+                    android:gravity="center_vertical"
+                    android:visibility="invisible" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/err_CVV"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/red" />
+            </LinearLayout>
         </LinearLayout>
         <LinearLayout
-            android:orientation="horizontal"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:id="@+id/linearLayout2">
-            <TextView
-                android:layout_width="99dp"
-                android:layout_height="match_parent"
-                android:id="@+id/textView4"
-                android:gravity="center_vertical"
-                android:visibility="invisible" />
-            <TextView
+            android:orientation="vertical"
+            android:id="@+id/ll_DirectDebit"
+            android:gravity="top">
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/err_NameOnCard"
-                android:gravity="center_vertical"
-                android:textColor="@color/red" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/linearLayout1"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
-            <TextView
-                android:text="Card Number"
-                android:layout_width="99.0dp"
-                android:layout_height="match_parent"
-                android:id="@+id/textView3"
-                android:gravity="center_vertical" />
-            <EditText
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+                <TextView
+                    android:text="Account Name"
+                    android:layout_width="110dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView3"
+                    android:gravity="center_vertical" />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/et_AccountName"
+                    android:inputType="textCapWords" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:minWidth="25px"
+                android:minHeight="25px"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/et_CardNumber"
-                android:numeric="integer"
-                android:maxLength="16"
-                android:inputType="number" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:id="@+id/linearLayout2">
-            <TextView
-                android:layout_width="99dp"
-                android:layout_height="match_parent"
-                android:id="@+id/textView4"
-                android:gravity="center_vertical"
-                android:visibility="invisible" />
-            <TextView
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+                <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView4"
+                    android:gravity="center_vertical"
+                    android:visibility="invisible" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/err_AccountName"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/red" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/err_CardNumber"
-                android:gravity="center_vertical"
-                android:textColor="@color/red" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/linearLayout1"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
-            <TextView
-                android:text="Expiry"
-                android:layout_width="99.0dp"
-                android:layout_height="match_parent"
-                android:id="@+id/textView3"
-                android:gravity="center_vertical" />
-            <EditText
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+                <TextView
+                    android:text="BSB"
+                    android:layout_width="110dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView3"
+                    android:gravity="center_vertical" />
+                <!--<EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/et_BSB"
+                    android:inputType="number"
+                    android:maxLength="7"
+                    android:numeric="integer" />-->
+              <MaskedEditText.MaskedEditText
+                    local:Mask="###-###"
+                    android:id="@+id/et_BSB"
+                    android:inputType="phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:minWidth="25px"
+                android:minHeight="25px"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/et_ExpiryMonth"
-                android:clickable="true"
-                android:cursorVisible="false"
-                android:focusable="false" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:id="@+id/linearLayout2">
-            <TextView
-                android:layout_width="99dp"
-                android:layout_height="match_parent"
-                android:id="@+id/textView4"
-                android:gravity="center_vertical"
-                android:visibility="invisible" />
-            <TextView
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+                <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView4"
+                    android:gravity="center_vertical"
+                    android:visibility="invisible" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/err_BSB"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/red" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/err_Expiry"
-                android:gravity="center_vertical"
-                android:textColor="@color/red" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/linearLayout1"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
-            <TextView
-                android:text="CVV"
-                android:layout_width="99.0dp"
-                android:layout_height="match_parent"
-                android:id="@+id/textView3"
-                android:gravity="center_vertical" />
-            <EditText
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+                <TextView
+                    android:text="Account Number"
+                    android:layout_width="110dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView3"
+                    android:gravity="center_vertical" />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="number"
+                    android:id="@+id/et_AccountNumber"
+                    android:numeric="integer"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:minWidth="25px"
+                android:minHeight="25px"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/et_CVV"
-                android:numeric="integer"
-                android:maxLength="3"
-                android:inputType="number"
-                android:password="true" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:id="@+id/linearLayout2">
-            <TextView
-                android:layout_width="99dp"
-                android:layout_height="match_parent"
-                android:id="@+id/textView4"
-                android:gravity="center_vertical"
-                android:visibility="invisible" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/err_CVV"
-                android:gravity="center_vertical"
-                android:textColor="@color/red" />
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+                <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView4"
+                    android:gravity="center_vertical"
+                    android:visibility="invisible" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/err_AccountNumber"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/red" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
     <LinearLayout

@@ -21,6 +21,7 @@ namespace RecoveriesConnect.Activities
         public Button bt_Pay;
 
         public Button bt_Create;
+
         bool isExistingPlan = false;
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -54,6 +55,23 @@ namespace RecoveriesConnect.Activities
                 bt_Create.SetText("Create an Instalment Plan", TextView.BufferType.Normal);
             }
 
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            base.OnOptionsItemSelected(item);
+
+            switch (item.ItemId)
+            {
+                case Android.Resource.Id.Home:
+                    Keyboard.HideSoftKeyboard(this);
+                    OnBackPressed();
+                    break;
+                default:
+                    break;
+            }
+
+            return true;
         }
 
         private void bt_Pay_Click(object sender, EventArgs e)
