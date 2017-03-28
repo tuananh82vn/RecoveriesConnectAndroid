@@ -11,6 +11,8 @@ using System;
 using System.Threading;
 using RecoveriesConnect.Activities;
 using AndroidHUD;
+using System.Collections.Generic;
+using RecoveriesConnect.Adapter;
 
 namespace RecoveriesConnect
 {
@@ -22,10 +24,11 @@ namespace RecoveriesConnect
 		public EditText et_HomePhone;
 		public EditText et_WorkPhone;
 		public EditText et_MobilePhone;
+        public EditText et_Email;
 
 
 
-		public TextView err_StreetAddress;
+        public TextView err_StreetAddress;
 		public TextView err_MailAddress;
 		public TextView err_HomePhone;
 		public TextView err_WorkPhone;
@@ -38,7 +41,17 @@ namespace RecoveriesConnect
 		public Button bt_Continue;
 
 
-		protected override void OnCreate(Bundle savedInstanceState)
+        List<string> listPrefer = new List<string>(4);
+        int selectedIndex = 0;
+        public CallbackTimeSpinnerAdapter callBackAdapter;
+        public Spinner spinner_Prefer;
+
+        public string ScreenComeFrom = "";
+
+        public string var_TransactionDescription,var_ReceiptNumber,var_Amount, var_Time, var_Date, var_Name, var_ClientName = "";
+        public int var_PaymentType, var_PaymentMethod, var_PaymentId, var_FirstDebtorPaymentInstallmentId = 0;
+
+        protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 
@@ -74,49 +87,70 @@ namespace RecoveriesConnect
 
 			//**************************************************//
 
-
-
 			et_StreetAddress = FindViewById<EditText>(Resource.Id.et_StreetAddress);
 			et_MailAddress = FindViewById<EditText>(Resource.Id.et_MailAddress);
 			et_HomePhone = FindViewById<EditText>(Resource.Id.et_HomePhone);
 			et_WorkPhone = FindViewById<EditText>(Resource.Id.et_WorkPhone);
 			et_MobilePhone = FindViewById<EditText>(Resource.Id.et_MobilePhone);
+            et_Email = FindViewById<EditText>(Resource.Id.et_Email);
 
 
-			bt_Continue = FindViewById<Button>(Resource.Id.bt_Continue);
+            bt_Continue = FindViewById<Button>(Resource.Id.bt_Continue);
 			bt_Continue.Click += Bt_Continue_Click;
 
-
-			err_StreetAddress = FindViewById<TextView>(Resource.Id.err_StreetAddress);
-			err_MailAddress = FindViewById<TextView>(Resource.Id.err_MailAddress);
-			err_HomePhone = FindViewById<TextView>(Resource.Id.err_HomePhone);
-			err_WorkPhone = FindViewById<TextView>(Resource.Id.err_WorkPhone);
 			err_MobilePhone = FindViewById<TextView>(Resource.Id.err_MobilePhone);
 
 
-			GetPersonalInfo();
+            listPrefer.Add("");
+            listPrefer.Add("Home Phone");
+            listPrefer.Add("Work Phone");
+            listPrefer.Add("Mobile Phone");
 
-		}
-		private void Bt_Continue_Click(object sender, EventArgs e)
+            spinner_Prefer = FindViewById<Spinner>(Resource.Id.spinner_Prefer);
+            callBackAdapter = new CallbackTimeSpinnerAdapter(this, this.listPrefer);
+
+            spinner_Prefer.Adapter = callBackAdapter;
+
+            spinner_Prefer.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(Prefer_ItemSelected);
+
+            GetPersonalInfo();
+
+            spinner_Prefer.SetSelection(selectedIndex);
+
+            ScreenComeFrom = Intent.GetStringExtra("ScreenComeFrom") ?? "";
+            if (!ScreenComeFrom.Equals("HomeMenu"))
+            {
+                var_TransactionDescription = Intent.GetStringExtra("tv_TransactionDescription") ?? "";
+                var_ReceiptNumber = Intent.GetStringExtra("tv_ReceiptNumber") ?? "";
+                var_Amount = Intent.GetStringExtra("tv_Amount") ?? "";
+                var_Time = Intent.GetStringExtra("tv_Time") ?? "";
+                var_Date = Intent.GetStringExtra("tv_Date") ?? "";
+                var_Name = Intent.GetStringExtra("tv_Name") ?? "";
+                var_PaymentType = Intent.GetIntExtra("PaymentType", 0);
+                var_PaymentMethod = Intent.GetIntExtra("PaymentMethod", 0);
+                var_PaymentId = Intent.GetIntExtra("PaymentId", 0);
+                var_ClientName = Intent.GetStringExtra("ClientName") ?? "";
+                var_FirstDebtorPaymentInstallmentId = Intent.GetIntExtra("FirstDebtorPaymentInstallmentId", 0);
+            }
+        }
+        private void Prefer_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            selectedIndex = e.Position;
+        }
+
+        private void Bt_Continue_Click(object sender, EventArgs e)
 		{
 			this.RunOnUiThread(() => this.bt_Continue.Enabled = false);
 
-			err_StreetAddress.Text = "";
-			err_MailAddress.Text = "";
-			err_HomePhone.Text = "";
-			err_WorkPhone.Text = "";
 			err_MobilePhone.Text = "";
 
 			IsValidate = true;
-
-
 
 			if (this.et_MobilePhone.Text.Length == 0)
 			{
 				err_MobilePhone.Text = Resources.GetString(Resource.String.EnterPhoneNumber);
 				IsValidate = false;
 			}
-
 
 			if (IsValidate)
 			{
@@ -174,8 +208,9 @@ namespace RecoveriesConnect
 						this.et_HomePhone.Text = ObjectReturn2.HomeNumber;
 						this.et_WorkPhone.Text = ObjectReturn2.WorkNumber;
 						this.et_MobilePhone.Text = ObjectReturn2.MobileNumber;
-
-					}
+                        this.et_Email.Text = ObjectReturn2.EmailAddress;
+                        this.selectedIndex = ObjectReturn2.Preferred;
+                    }
 					else
 					{
 						this.RunOnUiThread(() => this.bt_Continue.Enabled = true);
@@ -209,7 +244,9 @@ namespace RecoveriesConnect
 					Address2s = this.et_MailAddress.Text.Trim(),
 					HomeNumber = this.et_HomePhone.Text.Trim(),
 					WorkNumber = this.et_WorkPhone.Text.Trim(),
-					MobileNumbers = this.et_MobilePhone.Text.Trim()
+					MobileNumbers = this.et_MobilePhone.Text.Trim(),
+                    EmailAddress = this.et_Email.Text.Trim(),
+                    Preferred = this.selectedIndex
 				}
 			};
 
@@ -237,16 +274,36 @@ namespace RecoveriesConnect
 
 						TrackingHelper.SendTracking("Update Personal Info");
 
-						Intent Intent = new Intent(this, typeof(FinishActivity));
+                        if (this.ScreenComeFrom.Equals("HomeMenu"))
+                        {
+                            Intent Intent = new Intent(this, typeof(FinishActivity));
+                            Intent.PutExtra("Message", "Your personal information has been updated successfully");
+                            StartActivity(Intent);
 
-						Intent.PutExtra("Message", "Your personal information has been updated successfully");
+                        }
+                        else
+                        {
+                            Intent Intent = new Intent(this, typeof(SummaryActivity));
 
-						StartActivity(Intent);
+                            Intent.PutExtra("tv_TransactionDescription", var_TransactionDescription);
+                            Intent.PutExtra("tv_ReceiptNumber", var_ReceiptNumber);
+                            Intent.PutExtra("tv_Amount", var_Amount);
+                            Intent.PutExtra("tv_Time", var_Time);
+                            Intent.PutExtra("tv_Date", var_Date);
+                            Intent.PutExtra("tv_Name", var_Name);
+                            Intent.PutExtra("PaymentType", var_PaymentType);
+                            Intent.PutExtra("PaymentMethod", var_PaymentMethod);
+                            Intent.PutExtra("PaymentId", var_PaymentId);
+                            Intent.PutExtra("ClientName", var_ClientName);
+                            Intent.PutExtra("FirstDebtorPaymentInstallmentId", var_FirstDebtorPaymentInstallmentId);
+                            StartActivity(Intent);
 
-						AndHUD.Shared.Dismiss();
+                        }
 
-						this.Finish();
-					}
+                        AndHUD.Shared.Dismiss();
+
+                        this.Finish();
+                    }
 					else
 					{
 						AndHUD.Shared.Dismiss();

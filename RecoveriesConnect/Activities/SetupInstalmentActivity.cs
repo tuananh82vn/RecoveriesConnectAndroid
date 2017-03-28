@@ -12,15 +12,15 @@ using RecoveriesConnect.Models.Api;
 using System.Threading;
 using System.Collections.Generic;
 using AndroidHUD;
+using Android.Text;
+using Android.Views.InputMethods;
 
 namespace RecoveriesConnect.Activities
 {
 	[Activity(Label = "SetupInstalment", LaunchMode = LaunchMode.SingleTop, Theme = "@style/Theme.Themecustom")]
-	public class SetupInstalmentActivity : Activity
-	{
-		public LinearLayout ln_Body;
+	public class SetupInstalmentActivity : Activity, TextView.IOnEditorActionListener
+    {
 		public Alert alert;
-		public Switch sw_Message;
 
 		public RadioButton rb_Weekly;
 		public RadioButton rb_Monthly;
@@ -42,9 +42,10 @@ namespace RecoveriesConnect.Activities
 		public Button bt_Continue;
 
 		public List<InstalmentSummaryModel> instalmentSummaryList;
+        public TextView tv_LastDate;
+        public TextView tv_NumberInstalment;
 
-
-		protected override void OnCreate(Bundle savedInstanceState)
+        protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 
@@ -69,7 +70,7 @@ namespace RecoveriesConnect.Activities
 			textViewParameters.RightMargin = (int)(30 * this.Resources.DisplayMetrics.Density);
 
 			TextView myTitle = new TextView(this);
-			myTitle.Text = "Setup Instalment";
+			myTitle.Text = "Pay In Instalments";
 			myTitle.TextSize = 20;
 			myTitle.Gravity = GravityFlags.Center;
 			lLayout.AddView(myTitle, textViewParameters);
@@ -82,15 +83,8 @@ namespace RecoveriesConnect.Activities
 
 			Date1 = DateTime.Now;
 
-			ln_Body = FindViewById<LinearLayout>(Resource.Id.ln_Body);
-			ln_Body.Visibility = ViewStates.Invisible;
-
-			sw_Message = FindViewById<Switch>(Resource.Id.sw_Message);
-			sw_Message.CheckedChange += sw_Message_Change;
-
 			bt_Continue = FindViewById<Button>(Resource.Id.bt_Continue);
 			bt_Continue.Click += Bt_Continue_Click;
-			bt_Continue.Enabled = false;
 
 			rb_Weekly = FindViewById<RadioButton>(Resource.Id.rb_Weekly);
 			rb_Monthly = FindViewById<RadioButton>(Resource.Id.rb_Monthly);
@@ -101,47 +95,36 @@ namespace RecoveriesConnect.Activities
 			rb_Monthly.Click += RadioButtonClick;
 
 			tv_Message = FindViewById<TextView>(Resource.Id.tv_Message);
+
 			err_FirstAmount = FindViewById<TextView>(Resource.Id.err_FirstAmount);
 			err_FirstDate = FindViewById<TextView>(Resource.Id.err_FirstDate);
 			err_Frequency = FindViewById<TextView>(Resource.Id.err_Frequency);
 
-
-			var message = "";
-			if (Settings.IsAllowMonthlyInstallment)
-			{
-				message = "Would you like to check if you qualify for a weekly/fortnightly or monthly payment schedule to meet your obligation in paying the amount of " + MoneyFormat.Convert(Settings.TotalOutstanding) + " ?";
-			}
-			else
-			{
-				message = "Would you like to check if you qualify for a weekly/fortnightly payment schedule to meet your obligation in paying the amount of " + MoneyFormat.Convert(Settings.TotalOutstanding) + " ?";
-				this.rb_Monthly.Visibility = ViewStates.Invisible;
-			}
-			tv_Message.Text = message;
-
 			et_Date = FindViewById<EditText>(Resource.Id.et_Date);
-			et_Date.Click += delegate { ShowDialog(DATE_1_DIALOG_ID); };
+            this.et_Date.Text = DateTime.Today.Date.ToShortDateString();
+            et_Date.Click += delegate { ShowDialog(DATE_1_DIALOG_ID); };
 
 			et_FirstAmount = FindViewById<EditText>(Resource.Id.et_Amount);
-		}
+            et_FirstAmount.TextChanged += InputSearchOnTextChanged;
 
-		public void sw_Message_Change(object sender, CompoundButton.CheckedChangeEventArgs e)
-		{
-			if (e.IsChecked)
-			{
-				ln_Body.Visibility = ViewStates.Visible;
-				bt_Continue.Enabled = true;
-			}
-			else
-			{
-				bt_Continue.Enabled = false;
-				OnBackPressed();
-			}
-		}
+            tv_LastDate = FindViewById<TextView>(Resource.Id.tv_LastDate);
+            tv_NumberInstalment = FindViewById<TextView>(Resource.Id.tv_NumberInstalment);
 
-		private void Bt_Continue_Click(object sender, EventArgs e)
+        }
+
+        private void InputSearchOnTextChanged(object sender, TextChangedEventArgs args)
+        {
+            DoCalculation();
+        }
+
+        public bool OnEditorAction(TextView v, ImeAction actionId, KeyEvent e)
+        {
+            return true;
+        }
+
+        private void Bt_Continue_Click(object sender, EventArgs e)
 		{
-			if (sw_Message.Checked)
-			{
+
 				err_FirstAmount.Text = "";
 				err_FirstDate.Text = "";
 				err_Frequency.Text = "";
@@ -222,15 +205,7 @@ namespace RecoveriesConnect.Activities
 				{
 					ThreadPool.QueueUserWorkItem(o => DoSetup());
 				}
-			}
-			else
-			{
-				this.RunOnUiThread(() =>
-				{
-					alert = new Alert(this, "Notice", "PLease asnwer the question first.");
-					alert.Show();
-				});
-			}
+
 		}
 
 
@@ -238,65 +213,8 @@ namespace RecoveriesConnect.Activities
 		private void DoSetup()
 		{
 			AndHUD.Shared.Show(this, "Please wait ...", -1, MaskType.Clear);
+
 			SetPayment.Set("instalment");
-
-			decimal totalAmount = Settings.TotalOutstanding;
-			decimal amount = Decimal.Parse(this.et_FirstAmount.Text);
-			decimal paidAmount = 0;
-			decimal instalmentAmount = amount < totalAmount ? amount : totalAmount;
-			DateTime firstDate = DateTime.Parse(this.et_Date.Text);
-			if (firstDate > DateTime.Today)
-			{
-				Settings.IsFuturePayment = true;
-			}
-			else
-			{
-				Settings.IsFuturePayment = false;
-			}
-			Settings.Frequency = this.Frequency + 1;
-
-			instalmentSummaryList = new List<InstalmentSummaryModel>();
-
-			while (totalAmount > paidAmount && instalmentAmount > 0)
-			{
-				
-				var instalmentModel1 = new InstalmentSummaryModel(firstDate.ToShortDateString(), Double.Parse(instalmentAmount.ToString()));
-				instalmentSummaryList.Add(instalmentModel1);
-
-				paidAmount = paidAmount + instalmentAmount;
-
-				if (paidAmount + amount <= totalAmount)
-				{
-					instalmentAmount = amount;
-				}
-				else
-				{
-					instalmentAmount = Math.Round(totalAmount - paidAmount, 2, MidpointRounding.ToEven);
-				}
-
-				if (Frequency == 0) {
-					firstDate = firstDate.AddDays(7);
-				}
-				else
-					if (Frequency == 1)
-					{
-						firstDate = firstDate.AddDays(14);
-					}
-					else
-					if (Frequency == 2)
-					{
-						firstDate = firstDate.AddMonths(1);
-					}
-
-			}
-
-			if (instalmentSummaryList.Count > 0) {
-				var lastInstalment = this.instalmentSummaryList[instalmentSummaryList.Count - 1].Amount;
-				if (lastInstalment < 10) {
-					this.instalmentSummaryList.RemoveAt(this.instalmentSummaryList.Count - 1);
-					this.instalmentSummaryList[this.instalmentSummaryList.Count - 1].Amount = this.instalmentSummaryList[this.instalmentSummaryList.Count - 1].Amount + lastInstalment;
-				}
-			}
 
 			Intent Intent = new Intent(this, typeof(InstalmentSummaryActivity));
 
@@ -310,23 +228,104 @@ namespace RecoveriesConnect.Activities
 
 		}
 
+        private void DoCalculation()
+        {
+            var amountText = this.et_FirstAmount.Text;
+            if (amountText.Trim().Length > 0)
+            {
+                decimal amount = Decimal.Parse(amountText);
+                var firstDateText = this.et_Date.Text;
+                if (firstDateText.Trim().Length > 0)
+                {
+                    DateTime firstDate = DateTime.Parse(firstDateText);
+
+                    decimal totalAmount = Settings.TotalOutstanding;
+
+                    decimal paidAmount = 0;
+                    decimal instalmentAmount = amount < totalAmount ? amount : totalAmount;
+                    if (firstDate > DateTime.Today)
+                    {
+                        Settings.IsFuturePayment = true;
+                    }
+                    else
+                    {
+                        Settings.IsFuturePayment = false;
+                    }
+                    Settings.Frequency = this.Frequency + 1;
+
+                    instalmentSummaryList = new List<InstalmentSummaryModel>();
+
+                    while (totalAmount > paidAmount && instalmentAmount > 0)
+                    {
+
+                        var instalmentModel1 = new InstalmentSummaryModel(firstDate.ToShortDateString(), Double.Parse(instalmentAmount.ToString()));
+                        instalmentSummaryList.Add(instalmentModel1);
+
+                        paidAmount = paidAmount + instalmentAmount;
+
+                        if (paidAmount + amount <= totalAmount)
+                        {
+                            instalmentAmount = amount;
+                        }
+                        else
+                        {
+                            instalmentAmount = Math.Round(totalAmount - paidAmount, 2, MidpointRounding.ToEven);
+                        }
+
+                        if (Frequency == 0)
+                        {
+                            firstDate = firstDate.AddDays(7);
+                        }
+                        else
+                            if (Frequency == 1)
+                        {
+                            firstDate = firstDate.AddDays(14);
+                        }
+                        else
+                            if (Frequency == 2)
+                        {
+                            firstDate = firstDate.AddMonths(1);
+                        }
+
+                    }
+
+                    if (instalmentSummaryList.Count > 0)
+                    {
+                        var lastInstalment = this.instalmentSummaryList[instalmentSummaryList.Count - 1].Amount;
+                        if (lastInstalment < 10)
+                        {
+                            this.instalmentSummaryList.RemoveAt(this.instalmentSummaryList.Count - 1);
+                            this.instalmentSummaryList[this.instalmentSummaryList.Count - 1].Amount = this.instalmentSummaryList[this.instalmentSummaryList.Count - 1].Amount + lastInstalment;
+                        }
+
+                        this.tv_NumberInstalment.Text = this.instalmentSummaryList.Count.ToString();
+                        this.tv_LastDate.Text = this.instalmentSummaryList[this.instalmentSummaryList.Count - 1].PaymentDate;
+                    }
+                }
+            }
+        }
+
 		private void RadioButtonClick(object sender, EventArgs e)
 		{
 			RadioButton rb = (RadioButton)sender;
 			if (rb.Text.Equals("Weekly"))
 			{
 				this.Frequency = 0;
-			}
+                DoCalculation();
+
+            }
 			else
 			if (rb.Text.Equals("Fortnightly"))
 			{
 				this.Frequency = 1;
-			}
+                DoCalculation();
+            }
 			else
 			if (rb.Text.Equals("Monthly"))
 			{
 				this.Frequency = 2;
-			}
+                DoCalculation();
+            }
 		}
 
 		public override bool OnOptionsItemSelected(IMenuItem item)
@@ -369,7 +368,8 @@ namespace RecoveriesConnect.Activities
 		void OnDate1Set(object sender, DatePickerDialog.DateSetEventArgs e)
 		{
 			this.et_Date.Text = e.Date.ToShortDateString();
-		}
+            DoCalculation();
+        }
 	}
 }
 

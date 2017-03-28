@@ -189,6 +189,7 @@
   <ItemGroup>
     <Compile Include="Activities\AboutActivity.cs" />
     <Compile Include="Activities\ContactUsActivity.cs" />
+    <Compile Include="Activities\CreateInstalmentPlanActivity.cs" />
     <Compile Include="Activities\HomeActivity.cs" />
     <Compile Include="Activities\InstalmentInfoActivity.cs" />
     <Compile Include="Activities\LoginActivity.cs" />
@@ -242,7 +243,7 @@
     <Compile Include="Activities\SelectPaymentMethodActivity.cs" />
     <Compile Include="Adapter\PaymentMethodSpinnerAdapter.cs" />
     <Compile Include="Activities\MakeDDPaymentActivity.cs" />
-    <Compile Include="Activities\SetupScheduleActivity.cs" />
+    <Compile Include="Activities\Setup3PartPaymentActivity.cs" />
     <Compile Include="Activities\SendFeedbackActivity.cs" />
     <Compile Include="Activities\UpdateCreditCardActivity.cs" />
     <Compile Include="Activities\UpdateBankAccountActivity.cs" />
@@ -340,7 +341,7 @@
     <AndroidResource Include="Resources\layout\UpdateBankAccount.axml" />
     <AndroidResource Include="Resources\layout\UpdatePersonalInformation.axml" />
     <AndroidResource Include="Resources\layout\ScheduleCallback.axml" />
-    <AndroidResource Include="Resources\layout\SetupSchedule.axml" />
+    <AndroidResource Include="Resources\layout\Setup3PartPayment.axml" />
     <AndroidResource Include="Resources\layout\SetupInstalment.axml" />
     <AndroidResource Include="Resources\layout\InstalmentSummary.axml" />
     <AndroidResource Include="Resources\layout\InstalmentSummaryList.axml" />
@@ -372,6 +373,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\MakePayment.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\CreateInstalmentPlan.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

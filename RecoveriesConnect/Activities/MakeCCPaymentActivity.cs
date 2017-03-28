@@ -166,7 +166,12 @@ namespace RecoveriesConnect.Activities
 
 			if (Settings.MakePaymentIn3Part || Settings.MakePaymentInstallment) {
 				this.et_Amount.Text = Settings.FirstAmountOfInstallment.ToString();
-			}
+                this.et_Amount.SetOnKeyListener(null);
+                this.et_Amount.Focusable = false;
+                this.et_Amount.Clickable = false;
+
+
+            }
             //else
             //{
             //	inputManager = (InputMethodManager)this.GetSystemService(Context.InputMethodService);
@@ -536,8 +541,10 @@ namespace RecoveriesConnect.Activities
                     {
 						TrackingHelper.SendTracking("Make CC Payment");
 
-						Intent Intent = new Intent(this, typeof(SummaryActivity));
+						Intent Intent = new Intent(this, typeof(UpdatePersonalInformationActivity));
+                        Intent.PutExtra("ScreenComeFrom", "MakeCCPayment");
 
+                        //////////////////////////////////////////////////////////////////////////////////////////////////
                         Intent.PutExtra("tv_TransactionDescription", ObjectReturn2.TransactionDescription);
                         Intent.PutExtra("tv_ReceiptNumber", ObjectReturn2.ReceiptNumber);
                         Intent.PutExtra("tv_Amount", ObjectReturn2.Amount);
@@ -651,8 +658,10 @@ namespace RecoveriesConnect.Activities
                     {
                         TrackingHelper.SendTracking("Make DD Payment");
 
-                        Intent Intent = new Intent(this, typeof(SummaryActivity));
+                        Intent Intent = new Intent(this, typeof(UpdatePersonalInformationActivity));
+                        Intent.PutExtra("ScreenComeFrom", "MakeDDPayment");
 
+                        //////////////////////////////////////////////////////////////////////////////////////////////////
                         Intent.PutExtra("tv_TransactionDescription", ObjectReturn2.TransactionDescription);
                         Intent.PutExtra("tv_ReceiptNumber", ObjectReturn2.ReceiptNumber);
                         Intent.PutExtra("tv_Amount", ObjectReturn2.Amount);

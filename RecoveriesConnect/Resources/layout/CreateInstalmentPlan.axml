@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="top">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ln_Message"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:minWidth="25px"
+            android:minHeight="25px">
+            <TextView
+                android:text="Can you pay the total amount in 2 payments withint 42 days ?"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/tv_Message"
+                android:gravity="center_vertical"
+                android:textColor="#006571" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:id="@+id/ln_Body">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp">
+                <Button
+                    android:text="Yes"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/bt_Yes"
+                    android:layout_marginLeft="15dp"
+                    android:background="#257C86"
+                    android:layout_marginRight="5dp"
+                    android:textColor="@drawable/ButtonTextColor" />
+                <Button
+                    android:text="No"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/bt_No"
+                    android:layout_marginRight="20dp"
+                    android:background="#008910"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@drawable/ButtonTextColor" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

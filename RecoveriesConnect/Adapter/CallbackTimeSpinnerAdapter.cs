@@ -36,19 +36,6 @@ namespace RecoveriesConnect.Adapter
             return id;
         }
 
-        //public int getPositionById(int DebtorId)
-        //{
-        //    for (int i = 0; i < _DebtorList.Count(); i++)
-        //    {
-        //        if (_DebtorList.ElementAt(i).Id == DebtorId)
-        //        {
-        //            return i;
-        //        }
-
-        //    }
-        //    return -1;
-        //}
-
         public override int Count
         {
             get

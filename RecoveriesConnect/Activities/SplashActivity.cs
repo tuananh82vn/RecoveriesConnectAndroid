@@ -64,7 +64,7 @@ namespace RecoveriesConnect.Activities
 					conn.CreateTable<Inbox>();
 				}
 
-                Thread.Sleep(2000);
+                Thread.Sleep(1000);
                 //Settings.IsAlreadySetupPin = false;
 
                 if (!Settings.IsAlreadySetupPin)

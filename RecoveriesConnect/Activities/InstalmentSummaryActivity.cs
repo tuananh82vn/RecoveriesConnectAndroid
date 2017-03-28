@@ -79,7 +79,7 @@ namespace RecoveriesConnect.Activities
 		{
 			Settings.FirstAmountOfInstallment = decimal.Parse(this.instalmentList.FirstOrDefault().Amount.ToString());
 				
-			Intent Intent = new Intent(this, typeof(SelectPaymentMethodActivity));
+			Intent Intent = new Intent(this, typeof(MakeCCPaymentActivity));
 
 			Intent.PutParcelableArrayListExtra("InstalmentSummary", instalmentList.ToArray());
 

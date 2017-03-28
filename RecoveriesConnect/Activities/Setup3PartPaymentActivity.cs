@@ -14,8 +14,8 @@ using System.Collections.Generic;
 
 namespace RecoveriesConnect.Activities
 {
-	[Activity(Label = "SetupSchedule", LaunchMode = LaunchMode.SingleTop, Theme = "@style/Theme.Themecustom")]
-	public class SetupScheduleActivity : Activity
+	[Activity(Label = "Setup3PartPayment", LaunchMode = LaunchMode.SingleTop, Theme = "@style/Theme.Themecustom")]
+	public class Setup3PartPaymentActivity : Activity
 	{
 		Alert alert;
 
@@ -45,12 +45,12 @@ namespace RecoveriesConnect.Activities
 		public TextView err_SecondDate;
 		public TextView err_ThirdDate;
 
-		public Switch sw_Message;
-		public TextView tv_Message;
+		public TextView tv_Message1;
+        public TextView tv_Message2;
 
-		public bool IsValidate = true;
 
-		public LinearLayout ln_Body;
+        public bool IsValidate = true;
+
 		public LinearLayout ln_Pay3;
 
 		public List<InstalmentSummaryModel> instalmentSummaryList;
@@ -61,7 +61,7 @@ namespace RecoveriesConnect.Activities
 
 			RequestWindowFeature(WindowFeatures.ActionBar);
 
-			SetContentView(Resource.Layout.SetupSchedule);
+			SetContentView(Resource.Layout.Setup3PartPayment);
 
 			//**************************************************//
 
@@ -80,7 +80,7 @@ namespace RecoveriesConnect.Activities
 			textViewParameters.RightMargin = (int)(30 * this.Resources.DisplayMetrics.Density);
 
 			TextView myTitle = new TextView(this);
-			myTitle.Text = "Setup Schedule";
+			myTitle.Text = "Setup " + Settings.MaxNoPay.ToString() + " Payments";
 			myTitle.TextSize = 20;
 			myTitle.Gravity = GravityFlags.Center;
 			lLayout.AddView(myTitle, textViewParameters);
@@ -115,17 +115,23 @@ namespace RecoveriesConnect.Activities
 			err_SecondDate = FindViewById<TextView>(Resource.Id.err_SecondDate);
 			err_ThirdDate = FindViewById<TextView>(Resource.Id.err_ThirdDate);
 
-			tv_Message = FindViewById<TextView>(Resource.Id.tv_Message);
-			var message = "Can you pay the total amount in " + Settings.MaxNoPay + " payments within " + Settings.ThreePartDurationDays + " days?";
-			tv_Message.Text = message;
+			tv_Message1 = FindViewById<TextView>(Resource.Id.tv_Message1);
+            var message = "";
 
-			ln_Body = FindViewById<LinearLayout>(Resource.Id.ln_Body);
-			ln_Body.Visibility = ViewStates.Invisible;
+            if (Settings.MaxNoPay == 2)
+            {
+                message = "Please enter the dates for the first and second payments.";
+            }
+            if (Settings.MaxNoPay == 3)
+            {
+                message = "Please enter the dates for the first, second and the third payments.";
+            }
+            tv_Message1.Text = message;
+
+            tv_Message2 = FindViewById<TextView>(Resource.Id.tv_Message2);
+            tv_Message2.Text = "You must pay the full amount with in " + Settings.ThreePartDurationDays +" days.";
 
 			ln_Pay3 = FindViewById<LinearLayout>(Resource.Id.ln_Pay3);
-
-			sw_Message = FindViewById<Switch>(Resource.Id.sw_Message);
-			sw_Message.CheckedChange += sw_Message_Change;
 
 			bt_Continue = FindViewById<Button>(Resource.Id.bt_Continue);
 			bt_Continue.Click += Bt_Continue_Click;
@@ -137,9 +143,7 @@ namespace RecoveriesConnect.Activities
 		private void Bt_Continue_Click(object sender, EventArgs e)
 		{
 
-			if (this.sw_Message.Checked)
-			{
-
+			
 				err_FirstAmount.Text = "";
 				err_SecondAmount.Text = "";
 				err_ThirdAmount.Text = "";
@@ -281,14 +285,6 @@ namespace RecoveriesConnect.Activities
 					//Do Payment
 					ThreadPool.QueueUserWorkItem(o => DoSetup());
 				}
-			}
-			else
-			{
-				Intent Intent = new Intent(this, typeof(SetupInstalmentActivity));
-
-				StartActivity(Intent);
-			}
-
 		}
 
 		public void DoSetup() {
@@ -298,7 +294,7 @@ namespace RecoveriesConnect.Activities
 
 			instalmentSummaryList = new List<InstalmentSummaryModel>();
 
-			TrackingHelper.SendTracking("Setup 3part");
+			TrackingHelper.SendTracking("Setup 3 part");
 
 			if (Settings.MaxNoPay == 2)
 			{
@@ -394,40 +390,27 @@ namespace RecoveriesConnect.Activities
 			{
 				ln_Pay3.Visibility = ViewStates.Invisible;
 			}
-		}
 
-		public void sw_Message_Change(object sender, CompoundButton.CheckedChangeEventArgs e) {
-			if (e.IsChecked)
-			{
-				//do something
-				ln_Body.Visibility = ViewStates.Visible;
-				this.bt_Continue.Text = "Next";
+            var totalAmount = Settings.TotalOutstanding;
 
-				var totalAmount = Settings.TotalOutstanding;
+            if (Settings.MaxNoPay == 2)
+            {
+                var firstAmount = Math.Round(totalAmount / 2, 2, MidpointRounding.ToEven);
+                this.et_FirstAmount.Text = firstAmount.ToString();
+                this.et_SecondAmount.Text = (totalAmount - firstAmount).ToString();
+            }
+            else
+                if (Settings.MaxNoPay == 3)
+                {
+                    var firstAmount = Math.Round(totalAmount / 3, 2, MidpointRounding.ToEven);
+                    var secondAmount = Math.Round(totalAmount / 3, 2, MidpointRounding.ToEven);
 
-				if (Settings.MaxNoPay == 2)
-				{
-					var firstAmount = Math.Round(totalAmount / 2, 2, MidpointRounding.ToEven);
-					this.et_FirstAmount.Text =  firstAmount.ToString();
-					this.et_SecondAmount.Text = (totalAmount - firstAmount).ToString();
-				}
-				else
-					if (Settings.MaxNoPay == 3)
-					{
-						var firstAmount = Math.Round(totalAmount / 3, 2, MidpointRounding.ToEven);
-						var secondAmount = Math.Round(totalAmount / 3, 2, MidpointRounding.ToEven);
+                    this.et_FirstAmount.Text = firstAmount.ToString();
+                    this.et_SecondAmount.Text = secondAmount.ToString();
+                    this.et_ThirdAmount.Text = (totalAmount - firstAmount - secondAmount).ToString();
+                }
+        }
 
-						this.et_FirstAmount.Text 	= firstAmount.ToString();
-						this.et_SecondAmount.Text 	= secondAmount.ToString();
-						this.et_ThirdAmount.Text 	= (totalAmount - firstAmount - secondAmount).ToString();
-					}
-			}
-			else
-			{
-				ln_Body.Visibility = ViewStates.Invisible;
-				this.bt_Continue.Text = "4 or more Payments";
-			}
-		}
 
 		public override bool OnOptionsItemSelected(IMenuItem item)
 		{

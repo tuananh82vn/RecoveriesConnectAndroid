@@ -91,7 +91,7 @@ namespace RecoveriesConnect.Activities
             }
             else
             {
-                Intent Intent = new Intent(this, typeof(SetupInstalmentActivity));
+                Intent Intent = new Intent(this, typeof(CreateInstalmentPlanActivity));
 
                 //Intent.SetFlags(ActivityFlags.ClearTask | ActivityFlags.NewTask);
 

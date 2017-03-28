@@ -5,9 +5,18 @@
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="top">
+        <TextView
+            android:text="Please confirm your details:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#006571" />
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -35,22 +44,6 @@
                 android:layout_height="match_parent"
                 android:id="@+id/et_StreetAddress"
                 android:inputType="textCapWords" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:id="@+id/linearLayout2">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/err_StreetAddress"
-                android:gravity="center_vertical"
-                android:textColor="@color/red" />
         </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
@@ -82,22 +75,6 @@
         </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:id="@+id/linearLayout2">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/err_MailAddress"
-                android:gravity="center_vertical"
-                android:textColor="@color/red" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/linearLayout1"
@@ -124,22 +101,6 @@
                 android:id="@+id/et_HomePhone"
                 android:inputType="phone"
                 android:phoneNumber="true" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:id="@+id/linearLayout2">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/err_HomePhone"
-                android:gravity="center_vertical"
-                android:textColor="@color/red" />
         </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
@@ -173,22 +134,6 @@
         </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:id="@+id/linearLayout2">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/err_WorkPhone"
-                android:gravity="center_vertical"
-                android:textColor="@color/red" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/linearLayout1"
@@ -200,7 +145,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/textView3"
-                android:gravity="center_vertical" />
+                android:gravity="center_vertical"
+                android:textStyle="bold" />
         </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
@@ -234,6 +180,53 @@
                 android:textColor="@color/red"
                 android:inputType="phone"
                 android:phoneNumber="true" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+            <TextView
+                android:text="Preferred"
+                android:layout_width="99.0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/textView3"
+                android:gravity="center_vertical" />
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="37.0dp"
+                android:id="@+id/spinner_Prefer"
+                android:gravity="center_vertical"
+                android:spinnerMode="dialog" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:text="Email"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/textView3"
+                android:gravity="center_vertical" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/et_Email" />
         </LinearLayout>
     </LinearLayout>
     <LinearLayout

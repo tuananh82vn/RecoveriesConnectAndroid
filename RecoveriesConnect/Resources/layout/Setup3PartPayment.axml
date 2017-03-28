@@ -12,10 +12,11 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/ln_Message"
+            android:id="@+id/ln_Message1"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
@@ -23,23 +24,36 @@
                 android:id="@+id/linearLayout1"
                 android:layout_weight="3">
                 <TextView
-                    android:text="Can you pay the total amount in 3 payments within 42 days?"
+                    android:text="Please enter the dates for the first and second payments."
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/tv_Message"
-                    android:gravity="center_vertical" />
+                    android:id="@+id/tv_Message1"
+                    android:gravity="center_vertical"
+                    android:textColor="#006571" />
             </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ln_Message2"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp">
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/linearLayout1">
-                <Switch
-                    android:layout_width="wrap_content"
+                android:id="@+id/linearLayout1"
+                android:layout_weight="3">
+                <TextView
+                    android:text="You must pay the full amount with in 42 days"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/sw_Message"
-                    android:textOn="Yes"
-                    android:textOff="No" />
+                    android:id="@+id/tv_Message2"
+                    android:gravity="center_vertical"
+                    android:textColor="#006571" />
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -47,12 +61,14 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_marginTop="10dp"
-            android:id="@+id/ln_Body">
+            android:id="@+id/ln_Body"
+            android:visibility="visible">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:id="@+id/ln_Pay1">
+                android:id="@+id/ln_Pay1"
+                android:visibility="visible">
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
@@ -144,7 +160,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:id="@+id/ln_Pay2">
+                android:id="@+id/ln_Pay2"
+                android:visibility="visible">
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
@@ -236,7 +253,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:id="@+id/ln_Pay3">
+                android:id="@+id/ln_Pay3"
+                android:visibility="visible">
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
@@ -335,7 +353,7 @@
         android:padding="5dp"
         android:id="@+id/ln_Bottom">
         <Button
-            android:text="4 or More Payments"
+            android:text="Next"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/bt_Continue"

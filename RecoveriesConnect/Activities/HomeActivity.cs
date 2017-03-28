@@ -174,38 +174,32 @@ namespace RecoveriesConnect.Activities
                     StartActivity(activity);
                     break;
 
-                case 2:
-
-					activity = new Intent(this, typeof(AboutActivity));
-					StartActivity(activity);
-					break;
-
-				case 3:
+				case 2:
 
 					activity = new Intent(this, typeof(ContactUsActivity));
 					StartActivity(activity);
 					break;
 
-				case 4:
+				case 3:
 
                     break;
 
-                case 5:
+                case 4:
 
 					activity = new Intent(this, typeof(UpdateCreditCardActivity));
 					StartActivity(activity);
                     break;
 
-                case 6:
+                case 5:
 
 					activity = new Intent(this, typeof(UpdateBankAccountActivity));
 					StartActivity(activity);
 					break;
 
-				case 7:
-
-					activity = new Intent(this, typeof(UpdatePersonalInformationActivity));
-					StartActivity(activity);
+				case 6:
+                    activity = new Intent(this, typeof(UpdatePersonalInformationActivity));
+                    activity.PutExtra("ScreenComeFrom", "HomeMenu");
+                    StartActivity(activity);
 					break;
 
             }
