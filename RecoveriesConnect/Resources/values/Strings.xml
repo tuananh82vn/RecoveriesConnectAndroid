@@ -119,6 +119,13 @@
 	  <string name="InstalmentSummary">Instalment Summary</string>
 	  <string name="SetupInstalment">Setup Instalment</string>
 	  <string name="InboxDetail">Inbox Detail</string>
+    <string name="NeedAgreeTC">Please agree to the Terms and Conditions to continue</string>
+
+    <string name="DirectDebitTC">
+      <![CDATA[ I acknowledge RecoveriesCorp will use my Direct Debit details for this payment arrangement. I have read and agree to the <a href="https://payments.recoveriescorp.com.au/TermsAndCondition/DirectDebit">Direct Debit Terms & Conditions</a>. ]]></string>
+    <string name="CreditCardTC">
+      <![CDATA[ I acknowledge RecoveriesCorp will use my Credit Card details for this payment arrangement. I have read and agree to the <a href="https://payments.recoveriescorp.com.au/TermsAndCondition/CreditCard">Credit Card Terms & Conditions</a>.]]>
+    </string>
     <string name="PrivacyPolicy">
     <![CDATA[ 
           <h4>1. Introduction </h4>

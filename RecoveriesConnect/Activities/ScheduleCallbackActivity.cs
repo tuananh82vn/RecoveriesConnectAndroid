@@ -93,12 +93,14 @@ namespace RecoveriesConnect.Activities
 			et_Date = FindViewById<EditText>(Resource.Id.et_Date);
 			spinner_Callback = FindViewById<Spinner>(Resource.Id.spinner_Callback);
 
-			et_Notes = FindViewById<EditText>(Resource.Id.et_Notes);
+            et_Notes = FindViewById<EditText>(Resource.Id.et_Notes);
 
 
 			et_Date.Click += delegate { ShowDialog(Start_DATE_DIALOG_ID); };
-		
-			err_Name = FindViewById<TextView>(Resource.Id.err_Name);
+            this.et_Date.Text = DateTime.Today.Date.ToShortDateString();
+            LoadCallbackList(DateTime.Today);
+
+            err_Name = FindViewById<TextView>(Resource.Id.err_Name);
 			err_Phone = FindViewById<TextView>(Resource.Id.err_Phone);
 			err_Date = FindViewById<TextView>(Resource.Id.err_Date);
 			err_TimeFrom = FindViewById<TextView>(Resource.Id.err_TimeFrom);
@@ -113,7 +115,19 @@ namespace RecoveriesConnect.Activities
 
 		}
 
-		public void LoadCallbackList(DateTime selectedDate)
+        //private void Spinner_Callback_Click(object sender, EventArgs e)
+        //{
+        //    if(this.listCallBack.Count == 0)
+        //    {
+        //        err_TimeFrom.Text = Resources.GetString(Resource.String.EnterDate);
+        //    }
+        //    else
+        //    {
+        //        err_TimeFrom.Text = "";
+        //    }
+        //}
+
+        public void LoadCallbackList(DateTime selectedDate)
 		{
 			AndHUD.Shared.Show(this, "Please wait ...", -1, MaskType.Clear);
 
@@ -137,9 +151,10 @@ namespace RecoveriesConnect.Activities
 
 				if (string.IsNullOrEmpty(results))
 				{
-					alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer));
-					alert.Show();
-				}
+                    AndHUD.Shared.Dismiss();
+                    this.RunOnUiThread(() => alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer)));
+                    this.RunOnUiThread(() => alert.Show());
+                }
 				else
 				{
 					ObjectReturn = Newtonsoft.Json.JsonConvert.DeserializeObject<CallbackReturnModel>(results);
@@ -163,7 +178,7 @@ namespace RecoveriesConnect.Activities
 			spinner_Callback.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(Callback_ItemSelected);
 		}
 
-		private void Callback_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        private void Callback_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
 		{
 			selectedIndex = e.Position;
 		}
@@ -260,9 +275,9 @@ namespace RecoveriesConnect.Activities
 				{
 					AndHUD.Shared.Dismiss();
 					this.RunOnUiThread(() => this.bt_Continue.Enabled = true);
-					alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer));
-					alert.Show();
-				}
+                    this.RunOnUiThread(() => alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer)));
+                    this.RunOnUiThread(() => alert.Show());
+                }
 				else
 				{
 

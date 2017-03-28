@@ -171,9 +171,9 @@ namespace RecoveriesConnect
 					if (string.IsNullOrEmpty(results2))
 					{
 						AndHUD.Shared.Dismiss();
-						alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer));
-						alert.Show();
-					}
+                        this.RunOnUiThread(() => alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer)));
+                        this.RunOnUiThread(() => alert.Show());
+                    }
 					else
 					{
 
@@ -230,10 +230,10 @@ namespace RecoveriesConnect
 
 				if (string.IsNullOrEmpty(results2))
 				{
-					AndHUD.Shared.Dismiss();
-					alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer));
-					alert.Show();
-				}
+                    AndHUD.Shared.Dismiss();
+                    this.RunOnUiThread(() => alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer)));
+                    this.RunOnUiThread(() => alert.Show());
+                }
 				else
 				{
 
@@ -258,9 +258,9 @@ namespace RecoveriesConnect
 					else
 					{
 						AndHUD.Shared.Dismiss();
-						alert = new Alert(this, "Error", ObjectReturn2.Error);
-						alert.Show();
-					}
+                        this.RunOnUiThread(() => alert = new Alert(this, "Error", ObjectReturn2.Error));
+                        this.RunOnUiThread(() => alert.Show());
+                    }
 				}
 			}
 			catch (Exception ee)

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical">
@@ -63,13 +64,12 @@
                 android:layout_height="match_parent"
                 android:id="@+id/textView3"
                 android:gravity="center_vertical" />
-            <EditText
+            <MaskedEditText.MaskedEditText
+                local:Mask="###-###"
+                android:id="@+id/et_BSB"
+                android:inputType="phone"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/et_BSB1"
-                android:numeric="integer"
-                android:maxLength="3"
-                android:inputType="number" />
+                android:layout_height="match_parent" />
         </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
@@ -89,50 +89,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/err_BSB1"
-                android:gravity="center_vertical"
-                android:textColor="@color/red" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/linearLayout1"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
-            <TextView
-                android:text="BSB2"
-                android:layout_width="110dp"
-                android:layout_height="match_parent"
-                android:id="@+id/textView3"
-                android:gravity="center_vertical" />
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/et_BSB2"
-                android:numeric="integer"
-                android:maxLength="3"
-                android:inputType="number" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:id="@+id/linearLayout2">
-            <TextView
-                android:layout_width="110dp"
-                android:layout_height="match_parent"
-                android:id="@+id/textView4"
-                android:gravity="center_vertical"
-                android:visibility="invisible" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/err_BSB2"
+                android:id="@+id/err_BSB"
                 android:gravity="center_vertical"
                 android:textColor="@color/red" />
         </LinearLayout>

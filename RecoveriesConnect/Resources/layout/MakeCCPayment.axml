@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:local="http://schemas.android.com/apk/res-auto"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical">
@@ -396,14 +396,14 @@
                     android:layout_height="match_parent"
                     android:id="@+id/textView3"
                     android:gravity="center_vertical" />
-                <!--<EditText
+            <!--<EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/et_BSB"
                     android:inputType="number"
                     android:maxLength="7"
                     android:numeric="integer" />-->
-              <MaskedEditText.MaskedEditText
+                <MaskedEditText.MaskedEditText
                     local:Mask="###-###"
                     android:id="@+id/et_BSB"
                     android:inputType="phone"
@@ -448,7 +448,7 @@
                     android:layout_height="match_parent"
                     android:inputType="number"
                     android:id="@+id/et_AccountNumber"
-                    android:numeric="integer"/>
+                    android:numeric="integer" />
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
@@ -475,11 +475,37 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="100dp"
         android:orientation="vertical"
         android:layout_alignParentBottom="true"
         android:gravity="center"
         android:padding="5dp">
+        <LinearLayout
+            android:id="@+id/ll_TC"
+            android:orientation="horizontal"
+            android:minWidth="25px"
+            android:minHeight="35px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+            <Switch
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:id="@+id/switch1"
+                android:textOn="Yes"
+                android:textOff=" No"
+                android:showText="false"
+                android:splitTrack="true" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/tv_Condition"
+                android:gravity="center_vertical"
+                android:textColor="@color/black"
+                android:singleLine="false"
+                android:text="I acknowledge RecoveriesCorp will use my Credit Card details for this payment arrangement. I have read and agree to the Credit Card Terms and Conditions"
+                android:textSize="10dp" />
+        </LinearLayout>
         <Button
             android:text="Continue"
             android:layout_width="match_parent"

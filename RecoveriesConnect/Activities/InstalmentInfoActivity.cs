@@ -132,9 +132,10 @@ namespace RecoveriesConnect.Activities
 
 				if (string.IsNullOrEmpty(results))
 				{
-					alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer));
-					alert.Show();
-				}
+                    AndHUD.Shared.Dismiss();
+                    this.RunOnUiThread(() => alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer)));
+                    this.RunOnUiThread(() => alert.Show());
+                }
 
 				var ObjectReturn = new ArrangeDetails();
 

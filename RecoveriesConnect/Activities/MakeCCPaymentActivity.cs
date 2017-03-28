@@ -16,6 +16,7 @@ using System.Collections.Generic;
 using AndroidHUD;
 using Android.Runtime;
 using Android.Text;
+using Android.Text.Method;
 
 namespace RecoveriesConnect.Activities
 {
@@ -23,6 +24,8 @@ namespace RecoveriesConnect.Activities
     public class MakeCCPaymentActivity : Activity//, TextView.IOnEditorActionListener
     {
         const int Start_DATE_DIALOG_ID = 0;
+
+        public Switch sw;
 
         public EditText et_Amount;
         public EditText et_Expire;
@@ -36,13 +39,13 @@ namespace RecoveriesConnect.Activities
         public ImageButton bt_Visa;
         public Button bt_Continue;
 
-
         public TextView err_Amount;
         public TextView err_CardType;
         public TextView err_NameOnCard;
         public TextView err_CardNumber;
         public TextView err_Expiry;
         public TextView err_CVV;
+        public TextView tv_Condition;
 
         public bool IsValidate = true;
 
@@ -64,7 +67,7 @@ namespace RecoveriesConnect.Activities
 
 
         public EditText et_AccountName;
-        public EditText et_BSB;
+        public MaskedEditText.MaskedEditText et_BSB;
         public EditText et_AccountNumber;
 
 
@@ -136,18 +139,21 @@ namespace RecoveriesConnect.Activities
             err_CardNumber = FindViewById<TextView>(Resource.Id.err_CardNumber);
             err_Expiry = FindViewById<TextView>(Resource.Id.err_Expiry);
             err_CVV = FindViewById<TextView>(Resource.Id.err_CVV);
+            tv_Condition = FindViewById<TextView>(Resource.Id.tv_Condition);
+            tv_Condition.TextFormatted = Html.FromHtml(Resources.GetString(Resource.String.CreditCardTC));
+            tv_Condition.MovementMethod = LinkMovementMethod.Instance;
 
             et_AccountName = FindViewById<EditText>(Resource.Id.et_AccountName);
             et_BSB = FindViewById<MaskedEditText.MaskedEditText>(Resource.Id.et_BSB);
-            //et_BSB.TextChanged += InputSearchOnTextChanged;
             et_AccountNumber = FindViewById<EditText>(Resource.Id.et_AccountNumber);
 
             err_AccountName = FindViewById<TextView>(Resource.Id.err_AccountName);
             err_BSB = FindViewById<TextView>(Resource.Id.err_BSB);
             err_AccountNumber = FindViewById<TextView>(Resource.Id.err_AccountNumber);
+            sw = FindViewById<Switch>(Resource.Id.switch1);
+
 
             //BuildVersionCodes currentapiVersion = Android.OS.Build.VERSION.SdkInt;
-
             //Andy Testing
             //this.et_Amount.Text = "10.1";
             //this.card_type = 2;
@@ -218,6 +224,9 @@ namespace RecoveriesConnect.Activities
             ll_CreditCard.Visibility = ViewStates.Visible;
 
             IsCreditCard = true;
+
+            tv_Condition.TextFormatted = Html.FromHtml(Resources.GetString(Resource.String.CreditCardTC));
+
         }
 
         private void bt_DirectDebit_Click(object sender, EventArgs e)
@@ -232,6 +241,9 @@ namespace RecoveriesConnect.Activities
             ll_CreditCard.Visibility = ViewStates.Gone;
 
             IsCreditCard = false;
+
+            tv_Condition.TextFormatted = Html.FromHtml(Resources.GetString(Resource.String.DirectDebitTC));
+
 
         }
 
@@ -251,17 +263,23 @@ namespace RecoveriesConnect.Activities
 
             if (IsValidate)
             {
-
-                var amount = this.et_Amount.Text;
-
-                //Do Payment
-                if (this.IsCreditCard)
+                if (!sw.Checked)
                 {
-                    ThreadPool.QueueUserWorkItem(o => DoCCPayment());
+                    this.RunOnUiThread(() => alert = new Alert(this, "Terms & Conditions", Resources.GetString(Resource.String.NeedAgreeTC)));
+                    this.RunOnUiThread(() => alert.Show());
+                    this.RunOnUiThread(() => this.bt_Continue.Enabled = true);
                 }
                 else
                 {
-                    ThreadPool.QueueUserWorkItem(o => DoDDPayment());
+                    //Do Payment
+                    if (this.IsCreditCard)
+                    {
+                        ThreadPool.QueueUserWorkItem(o => DoCCPayment());
+                    }
+                    else
+                    {
+                        ThreadPool.QueueUserWorkItem(o => DoDDPayment());
+                    }
                 }
             }
             else
@@ -281,7 +299,6 @@ namespace RecoveriesConnect.Activities
             err_Expiry.Text = "";
             err_CVV.Text = "";
             IsValidate = true;
-
 
             if (et_Amount.Text.Length == 0)
             {
@@ -401,14 +418,14 @@ namespace RecoveriesConnect.Activities
                 }
             }
 
-            if (et_BSB.Text.Length == 0)
+            if (et_BSB.Text.Trim().Length == 1)
             {
                 err_BSB.Text = Resources.GetString(Resource.String.EnterBSB);
                 IsValidate = false;
             }
             else
             {
-                if (et_BSB.Text.Length != 7)
+                if (et_BSB.Text.Trim().Length != 7)
                 {
                     err_BSB.Text = Resources.GetString(Resource.String.BSBInvalid);
                     IsValidate = false;
@@ -506,8 +523,8 @@ namespace RecoveriesConnect.Activities
                 {
 					AndHUD.Shared.Dismiss();
                     this.RunOnUiThread(() => this.bt_Continue.Enabled = true);
-                    alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer));
-                    alert.Show();
+                    this.RunOnUiThread(() => alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer)));
+                    this.RunOnUiThread(() => alert.Show());
                 }
                 else
                 {
@@ -622,8 +639,8 @@ namespace RecoveriesConnect.Activities
 
                     AndHUD.Shared.Dismiss();
                     this.RunOnUiThread(() => this.bt_Continue.Enabled = true);
-                    alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer));
-                    alert.Show();
+                    this.RunOnUiThread(() => alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer)));
+                    this.RunOnUiThread(() => alert.Show());
                 }
                 else
                 {

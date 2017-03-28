@@ -282,9 +282,9 @@ namespace RecoveriesConnect
 				if (string.IsNullOrEmpty(results))
 				{
 					AndHUD.Shared.Dismiss();
-					alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer));
-					alert.Show();
-				}
+                    this.RunOnUiThread(() => alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer)));
+                    this.RunOnUiThread(() => alert.Show());
+                }
 				else
 				{
 
@@ -292,12 +292,7 @@ namespace RecoveriesConnect
 
 					AndHUD.Shared.Dismiss();
 
-					if (ObjectReturn2.IsSuccess)
-					{
-
-					}
-					else
-					{
+					if (!ObjectReturn2.IsSuccess) { 
 						this.RunOnUiThread(() => alert = new Alert(this, "Error", ObjectReturn2.Errors[0].ErrorMessage));
 						this.RunOnUiThread(() => alert.Show());
 					}

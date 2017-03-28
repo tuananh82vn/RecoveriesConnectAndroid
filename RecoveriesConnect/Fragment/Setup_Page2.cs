@@ -292,9 +292,7 @@ namespace RecoveriesConnect.Fragment
 			if (et_NetCode.Text.Length > 6 || et_NetCode.Text.Length < 6)
 			{
 				AndHUD.Shared.Dismiss();
-
 				alert = new Alert(this.Activity, "Error", Resources.GetString(Resource.String.NetCodeInvalid));
-				//this.ShowKeyboard(et_NetCode);
 				alert.Show();
 			}
 			else
@@ -320,7 +318,9 @@ namespace RecoveriesConnect.Fragment
 
 					ObjectReturn = Newtonsoft.Json.JsonConvert.DeserializeObject<JsonReturnModel>(results);
 
-					if (ObjectReturn.IsSuccess)
+                    AndHUD.Shared.Dismiss();
+
+                    if (ObjectReturn.IsSuccess)
 					{
 						Keyboard.HideKeyboard(this.Activity, et_NetCode);
 
@@ -333,8 +333,11 @@ namespace RecoveriesConnect.Fragment
 					}
 					else
 					{
-						alert = new Alert(this.Activity, "Error", ObjectReturn.Errors[0].ErrorMessage);
-						this.Activity.RunOnUiThread(() => alert.Show());
+                        this.Activity.RunOnUiThread(() =>
+                        {
+                            alert = new Alert(this.Activity, "Error", ObjectReturn.Errors[0].ErrorMessage);
+                            alert.Show();
+                        });
 					}
 				}
 				catch (Exception ex)
@@ -342,9 +345,6 @@ namespace RecoveriesConnect.Fragment
 					AndHUD.Shared.Dismiss();
 				}
 			}
-
-			AndHUD.Shared.Dismiss();
-
 		}
     }
 }

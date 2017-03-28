@@ -150,9 +150,9 @@ namespace RecoveriesConnect.Activities
 				if (string.IsNullOrEmpty(results))
 				{
 					AndHUD.Shared.Dismiss();
-					alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer));
-					alert.Show();
-				}
+                    this.RunOnUiThread(() => alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer)));
+                    this.RunOnUiThread(() => alert.Show());
+                }
 				else
 				{
 

@@ -184,9 +184,9 @@ namespace RecoveriesConnect.Activities
 					if (string.IsNullOrEmpty(results))
 					{
 						this.RunOnUiThread(() => this.bt_Defer.Enabled = true);
-						alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer));
-						alert.Show();
-					}
+                        this.RunOnUiThread(() => alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer)));
+                        this.RunOnUiThread(() => alert.Show());
+                    }
 					else
 					{
 						ObjectReturn2 = Newtonsoft.Json.JsonConvert.DeserializeObject<JsonReturnModel>(results);
@@ -241,9 +241,9 @@ namespace RecoveriesConnect.Activities
 
 				if (string.IsNullOrEmpty(results))
 				{
-					alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer));
-					alert.Show();
-				}
+                    this.RunOnUiThread(() => alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer)));
+                    this.RunOnUiThread(() => alert.Show());
+                }
 				else
 				{
 					ObjectReturn = Newtonsoft.Json.JsonConvert.DeserializeObject<DebtorInfoModel>(results);

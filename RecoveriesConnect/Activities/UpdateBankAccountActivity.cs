@@ -12,20 +12,19 @@ using System.Threading;
 using RecoveriesConnect.Activities;
 using AndroidHUD;
 
+
 namespace RecoveriesConnect
 {
 	[Activity(Label = "UpdateBankAccount", LaunchMode = LaunchMode.SingleTop, Theme = "@style/Theme.Themecustom")]
 	public class UpdateBankAccountActivity : Activity
 	{
 		public EditText et_AccountName;
-		public EditText et_BSB1;
-		public EditText et_BSB2;
-		public EditText et_AccountNumber;
+        public MaskedEditText.MaskedEditText et_BSB;
+        public EditText et_AccountNumber;
 
 
 		public TextView err_AccountName;
-		public TextView err_BSB1;
-		public TextView err_BSB2;
+		public TextView err_BSB;
 		public TextView err_AccountNumber;
 
 		Alert alert;
@@ -73,8 +72,7 @@ namespace RecoveriesConnect
 
 
 			et_AccountName = FindViewById<EditText>(Resource.Id.et_AccountName);
-			et_BSB1 = FindViewById<EditText>(Resource.Id.et_BSB1);
-			et_BSB2 = FindViewById<EditText>(Resource.Id.et_BSB2);
+			et_BSB = FindViewById<MaskedEditText.MaskedEditText>(Resource.Id.et_BSB);
 			et_AccountNumber = FindViewById<EditText>(Resource.Id.et_AccountNumber);
 
 
@@ -83,13 +81,8 @@ namespace RecoveriesConnect
 
 
 			err_AccountName = FindViewById<TextView>(Resource.Id.err_AccountName);
-			err_BSB1 = FindViewById<TextView>(Resource.Id.err_BSB1);
-			err_BSB2 = FindViewById<TextView>(Resource.Id.err_BSB2);
+			err_BSB = FindViewById<TextView>(Resource.Id.err_BSB);
 			err_AccountNumber = FindViewById<TextView>(Resource.Id.err_AccountNumber);
-
-			//Andy Testing
-			//this.et_Expire.Text = "07/2016";
-			//this.et_CardNumber.Text = "4444333322221111";
 
 			GetBankInfo();
 
@@ -98,8 +91,7 @@ namespace RecoveriesConnect
 		{
 
 			err_AccountName.Text = "";
-			err_BSB1.Text = "";
-			err_BSB2.Text = "";
+			err_BSB.Text = "";
 			err_AccountNumber.Text = "";
 
 			IsValidate = true;
@@ -121,35 +113,22 @@ namespace RecoveriesConnect
 			}
 
 
-			if (et_BSB1.Text.Length == 0)
-			{
-				err_BSB1.Text = Resources.GetString(Resource.String.EnterBSB);
-				IsValidate = false;
-			}
-			else
-			{
-				if (et_BSB1.Text.Length != 3)
-				{
-					err_BSB1.Text = Resources.GetString(Resource.String.BSBInvalid);
-					IsValidate = false;
-				}
-			}
+            if (et_BSB.Text.Trim().Length == 1)
+            {
+                err_BSB.Text = Resources.GetString(Resource.String.EnterBSB);
+                IsValidate = false;
+            }
+            else
+            {
+                if (et_BSB.Text.Trim().Length != 7)
+                {
+                    err_BSB.Text = Resources.GetString(Resource.String.BSBInvalid);
+                    IsValidate = false;
+                }
+            }
+            
 
-			//if (et_BSB2.Text.Length == 0)
-			//{
-			//	err_BSB2.Text = Resources.GetString(Resource.String.EnterBSB2);
-			//	IsValidate = false;
-			//}
-			//else
-			//{
-			//	if (et_BSB2.Text.Length != 3)
-			//	{
-			//		err_BSB2.Text = Resources.GetString(Resource.String.BSB2Invalid);
-			//		IsValidate = false;
-			//	}
-			//}
-
-			if (et_AccountNumber.Text.Length == 0)
+            if (et_AccountNumber.Text.Length == 0)
 			{
 				err_AccountNumber.Text = Resources.GetString(Resource.String.EnterAccountNumber);
 				IsValidate = false;
@@ -197,9 +176,9 @@ namespace RecoveriesConnect
 				if (string.IsNullOrEmpty(results2))
 				{
 					AndHUD.Shared.Dismiss();
-					alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer));
-					alert.Show();
-				}
+                    this.RunOnUiThread(() => alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer)));
+                    this.RunOnUiThread(() => alert.Show());
+                }
 				else
 				{
 
@@ -215,8 +194,7 @@ namespace RecoveriesConnect
 						{
 							this.et_AccountName.Text = ObjectReturn2.AccountName;
 							this.et_AccountNumber.Text = ObjectReturn2.AccountNo;
-							this.et_BSB1.Text = ObjectReturn2.BsbNo.Substring(0,3);
-							this.et_BSB2.Text = ObjectReturn2.BsbNo.Substring(3, 3);
+							this.et_BSB.Text = ObjectReturn2.BsbNo;
 						}
 					}
 				}
@@ -243,7 +221,7 @@ namespace RecoveriesConnect
 					RecType = "DD",
 					CCNo = "",
 					ExpiryDate = "",
-					BsbNo = this.et_BSB1.Text.Trim() + this.et_BSB2.Text.Trim(),
+					BsbNo = this.et_BSB.Text.Trim(),
 					AccountNo = this.et_AccountNumber.Text,
 					AccountName = this.et_AccountName.Text
 				}
@@ -258,9 +236,9 @@ namespace RecoveriesConnect
 				if (string.IsNullOrEmpty(results2))
 				{
 					AndHUD.Shared.Dismiss();
-					alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer));
-					alert.Show();
-				}
+                    this.RunOnUiThread(() => alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer)));
+                    this.RunOnUiThread(() => alert.Show());
+                }
 				else
 				{
 
@@ -282,8 +260,8 @@ namespace RecoveriesConnect
 					else
 					{
 						AndHUD.Shared.Dismiss();
-						alert = new Alert(this, "Error", ObjectReturn2.Error);
-						alert.Show();
+                        this.RunOnUiThread(() => alert = new Alert(this, "Error", ObjectReturn2.Error));
+                        this.RunOnUiThread(() => alert.Show());
 					}
 				}
 			}

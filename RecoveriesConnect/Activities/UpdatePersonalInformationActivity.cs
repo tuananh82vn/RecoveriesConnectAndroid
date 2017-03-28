@@ -154,10 +154,11 @@ namespace RecoveriesConnect
 
 				if (string.IsNullOrEmpty(results2))
 				{
-					this.RunOnUiThread(() => this.bt_Continue.Enabled = true);
-					alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer));
-					alert.Show();
-				}
+                    AndHUD.Shared.Dismiss();
+                    this.RunOnUiThread(() => this.bt_Continue.Enabled = true);
+                    this.RunOnUiThread(() => alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer)));
+                    this.RunOnUiThread(() => alert.Show());
+                }
 				else
 				{
 
@@ -222,9 +223,9 @@ namespace RecoveriesConnect
 				{
 					AndHUD.Shared.Dismiss();
 					this.RunOnUiThread(() => this.bt_Continue.Enabled = true);
-					alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer));
-					alert.Show();
-				}
+                    this.RunOnUiThread(() => alert = new Alert(this, "Error", Resources.GetString(Resource.String.NoServer)));
+                    this.RunOnUiThread(() => alert.Show());
+                }
 				else
 				{
 
