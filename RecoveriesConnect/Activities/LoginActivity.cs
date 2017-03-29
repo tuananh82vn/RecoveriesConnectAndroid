@@ -140,7 +140,9 @@ namespace RecoveriesConnect.Activities
 			Settings.IsCoBorrowers = false;
 			Settings.ArrangementDebtor = "";
 			Settings.ThreePartDurationDays = 0;
-			Settings.IsAllowMonthlyInstallment = false;
+            Settings.ThreePartMaxDaysBetweenPayments = 0;
+
+            Settings.IsAllowMonthlyInstallment = false;
             Settings.OurClient = "";
             Settings.ClientAccountNumber = "";
 

@@ -118,7 +118,14 @@ namespace RecoveriesConnect.Activities
                     {
                         Settings.MaxNoPay = debtor.MaxNoPay;
                     }
-                    Settings.ThreePartDurationDays = debtor.client.ThreePartDateDurationDays;
+
+                    if (debtor.client.ThreePartDateDurationDays != 0)
+                    {
+                        Settings.ThreePartDurationDays = debtor.client.ThreePartDateDurationDays;
+                    }
+
+                    Settings.ThreePartMaxDaysBetweenPayments = debtor.client.ThreePartMaxDaysBetweenPayments;
+
 
                     _backgroundtimer.Stop();
 

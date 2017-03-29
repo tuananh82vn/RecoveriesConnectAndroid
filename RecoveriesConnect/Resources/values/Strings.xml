@@ -91,8 +91,11 @@
 	
     <string name="EnterFrequency">Please select frequency of instalment</string>
     <string name="InstalmentAmountInvalid">Instalment Amount total is not valid</string>
-    <string name="MaxTime2Payment">Maximum time between two payments is 14 days</string>
-    <string name="ThirdPaymentAfter">3rd payment date must be after the 2nd instalment date</string>
+    <string name="MaxTime2Payment">Maximum time between two payments is</string>
+    <string name="Total3MaxTime">The maximum payment duration for a 3 part payment is </string>
+    <string name="Total2MaxTime">The maximum payment duration for a 2 part payment is </string>
+
+  <string name="ThirdPaymentAfter">3rd payment date must be after the 2nd instalment date</string>
     <string name="ThirdPaymentGreater10">3rd payment should be greater than or equal to $10.00</string>
     <string name="FirstPaymentIn30">1st payment date must be valid within next 30 days</string>
 	  <string name="AmountLessThanNegotiated">Payment does not meet your negotiated limit</string>

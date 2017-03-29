@@ -218,7 +218,7 @@ namespace RecoveriesConnect.Activities
 				{
 					var enterDate = DateTime.Parse(this.et_SecondDate.Text);
 					var firstDate = DateTime.Parse(this.et_FirstDate.Text);
-					var MaxDate = firstDate.AddDays(14);
+					var MaxDate = firstDate.AddDays(Settings.ThreePartMaxDaysBetweenPayments);
 
 					if (enterDate <= firstDate)
 					{
@@ -227,7 +227,7 @@ namespace RecoveriesConnect.Activities
 					}
 					if (enterDate > MaxDate)
 					{
-						err_SecondDate.Text = Resources.GetString(Resource.String.MaxTime2Payment);
+						err_SecondDate.Text = Resources.GetString(Resource.String.MaxTime2Payment) + Settings.ThreePartMaxDaysBetweenPayments.ToString() + " days.";
 						IsValidate = false;
 					}
 				}
@@ -261,22 +261,43 @@ namespace RecoveriesConnect.Activities
 					}
 					else
 					{
-						var enterDate = DateTime.Parse(this.et_SecondDate.Text);
 						var secondDate = DateTime.Parse(this.et_SecondDate.Text);
-						var MaxDate = secondDate.AddDays(14);
+						var thirdDate = DateTime.Parse(this.et_ThirdDate.Text);
 
-						if (enterDate <= secondDate)
+						var MaxDate = thirdDate.AddDays(Settings.ThreePartMaxDaysBetweenPayments);
+
+                        var totalMaxDate = DateTime.Parse(this.et_FirstDate.Text).AddDays(Settings.ThreePartDurationDays);
+
+                        if (thirdDate <= secondDate)
 						{
 							err_ThirdDate.Text = Resources.GetString(Resource.String.ThirdPaymentMusAfterSecondPayment);
 							IsValidate = false;
 						}
-						if (enterDate > MaxDate)
+						if (thirdDate > MaxDate)
 						{
-							err_ThirdDate.Text = Resources.GetString(Resource.String.MaxTime2Payment);
-							IsValidate = false;
+							err_ThirdDate.Text = Resources.GetString(Resource.String.MaxTime2Payment) + Settings.ThreePartMaxDaysBetweenPayments.ToString() + " days.";
+                            IsValidate = false;
 						}
+
+                        if (thirdDate > totalMaxDate)
+                        {
+                            err_ThirdDate.Text = Resources.GetString(Resource.String.Total3MaxTime) + Settings.ThreePartDurationDays.ToString() + " days from today.";
+                            IsValidate = false;
+                        }
 					}
 				}
+                else
+                {
+                    var secondDate = DateTime.Parse(this.et_SecondDate.Text);
+
+                    var totalMaxDate = DateTime.Parse(this.et_FirstDate.Text).AddDays(Settings.ThreePartDurationDays);
+
+                    if (secondDate > totalMaxDate)
+                    {
+                        err_ThirdDate.Text = Resources.GetString(Resource.String.Total2MaxTime) + Settings.ThreePartDurationDays.ToString() + " days from today.";
+                        IsValidate = false;
+                    }
+                }
 
 				this.RunOnUiThread(() => this.bt_Continue.Enabled = true);
 
