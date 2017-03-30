@@ -6743,11 +6743,11 @@ namespace RecoveriesConnect
 			// aapt resource value: 0x7f0b01ee
 			public const int et_MailAddress3 = 2131427822;
 			
-			// aapt resource value: 0x7f0b01f1
-			public const int et_MailPostcode = 2131427825;
-			
 			// aapt resource value: 0x7f0b01f0
-			public const int et_MailState = 2131427824;
+			public const int et_MailPostcode = 2131427824;
+			
+			// aapt resource value: 0x7f0b01f1
+			public const int et_MailState = 2131427825;
 			
 			// aapt resource value: 0x7f0b01ef
 			public const int et_MailSuburb = 2131427823;
@@ -6791,11 +6791,11 @@ namespace RecoveriesConnect
 			// aapt resource value: 0x7f0b01e8
 			public const int et_StreetAddress3 = 2131427816;
 			
-			// aapt resource value: 0x7f0b01eb
-			public const int et_StreetPostcode = 2131427819;
-			
 			// aapt resource value: 0x7f0b01ea
-			public const int et_StreetState = 2131427818;
+			public const int et_StreetPostcode = 2131427818;
+			
+			// aapt resource value: 0x7f0b01eb
+			public const int et_StreetState = 2131427819;
 			
 			// aapt resource value: 0x7f0b01e9
 			public const int et_StreetSuburb = 2131427817;

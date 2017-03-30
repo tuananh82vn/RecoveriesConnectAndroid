@@ -494,7 +494,7 @@
                 android:id="@+id/switch1"
                 android:textOn="Yes"
                 android:textOff=" No"
-                android:showText="false"
+                android:showText="true"
                 android:splitTrack="true" />
             <TextView
                 android:layout_width="match_parent"

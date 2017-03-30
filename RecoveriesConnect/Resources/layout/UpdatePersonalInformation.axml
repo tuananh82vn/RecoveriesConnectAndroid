@@ -15,14 +15,16 @@
             android:orientation="vertical"
             android:gravity="top">
             <TextView
-                android:text="Please confirm your details:"
+                android:text="Your personal information has been obscured to protect your privacy. To update your details, please clear the field(s), input new details and press Continue:"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView3"
                 android:gravity="center_vertical"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:textColor="#006571" />
+                android:textColor="#006571"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp" />
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -40,7 +42,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/et_StreetAddress1"
-                    android:inputType="textCapWords" />
+                    android:inputType="textPostalAddress" />
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
@@ -59,7 +61,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/et_StreetAddress2"
-                    android:inputType="textCapWords" />
+                    android:inputType="textPostalAddress" />
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
@@ -78,7 +80,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/et_StreetAddress3"
-                    android:inputType="textCapWords" />
+                    android:inputType="textPostalAddress" />
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
@@ -94,20 +96,9 @@
                     android:id="@+id/textView3"
                     android:gravity="center_vertical" />
                 <EditText
-                    android:layout_width="110dp"
-                    android:layout_height="match_parent"
-                    android:id="@+id/et_StreetSuburb"
-                    android:inputType="textCapWords" />
-                <TextView
-                    android:text="State"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:id="@+id/textView3"
-                    android:gravity="center_vertical" />
-                <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/et_StreetState"
+                    android:id="@+id/et_StreetSuburb"
                     android:inputType="textCapWords" />
             </LinearLayout>
             <LinearLayout
@@ -124,9 +115,24 @@
                     android:id="@+id/textView3"
                     android:gravity="center_vertical" />
                 <EditText
+                    android:layout_width="110dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/et_StreetPostcode"
+                    android:numeric="integer"
+                    android:maxLength="4"
+                    android:inputType="number" />
+                <TextView
+                    android:text="State"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView3"
+                    android:gravity="center_vertical" />
+                <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/et_StreetPostcode" />
+                    android:id="@+id/et_StreetState"
+                    android:inputType="textCapCharacters"
+                    android:maxLength="3" />
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
@@ -145,7 +151,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/et_MailAddress1"
-                    android:inputType="textCapWords" />
+                    android:inputType="textPostalAddress" />
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
@@ -164,7 +170,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/et_MailAddress2"
-                    android:inputType="textCapWords" />
+                    android:inputType="textPostalAddress" />
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
@@ -183,7 +189,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/et_MailAddress3"
-                    android:inputType="textCapWords" />
+                    android:inputType="textPostalAddress" />
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
@@ -199,20 +205,9 @@
                     android:id="@+id/textView3"
                     android:gravity="center_vertical" />
                 <EditText
-                    android:layout_width="110dp"
-                    android:layout_height="match_parent"
-                    android:id="@+id/et_MailSuburb"
-                    android:inputType="textCapWords" />
-                <TextView
-                    android:text="State"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:id="@+id/textView3"
-                    android:gravity="center_vertical" />
-                <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/et_MailState"
+                    android:id="@+id/et_MailSuburb"
                     android:inputType="textCapWords" />
             </LinearLayout>
             <LinearLayout
@@ -229,9 +224,24 @@
                     android:id="@+id/textView3"
                     android:gravity="center_vertical" />
                 <EditText
+                    android:layout_width="110dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/et_MailPostcode"
+                    android:inputType="number"
+                    android:maxLength="4"
+                    android:numeric="integer" />
+                <TextView
+                    android:text="State"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView3"
+                    android:gravity="center_vertical" />
+                <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/et_MailPostcode" />
+                    android:id="@+id/et_MailState"
+                    android:inputType="textCapCharacters"
+                    android:maxLength="3" />
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
@@ -251,8 +261,9 @@
                     android:layout_height="match_parent"
                     android:id="@+id/et_HomePhone"
                     android:capitalize="words"
-                    android:numeric="decimal"
-                    android:inputType="numberDecimal" />
+                    android:numeric="integer"
+                    android:inputType="number"
+                    android:phoneNumber="true" />
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
@@ -272,8 +283,9 @@
                     android:layout_height="match_parent"
                     android:id="@+id/et_WorkPhone"
                     android:capitalize="words"
-                    android:numeric="decimal"
-                    android:inputType="numberDecimal" />
+                    android:numeric="integer"
+                    android:phoneNumber="true"
+                    android:inputType="number" />
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
@@ -293,8 +305,9 @@
                     android:layout_height="match_parent"
                     android:id="@+id/et_MobilePhone"
                     android:capitalize="words"
-                    android:numeric="decimal"
-                    android:inputType="numberDecimal" />
+                    android:numeric="integer"
+                    android:inputType="number"
+                    android:phoneNumber="true" />
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
@@ -356,6 +369,7 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:inputType="textEmailAddress"
                     android:id="@+id/et_Email" />
             </LinearLayout>
             <Button
@@ -366,7 +380,10 @@
                 android:id="@+id/bt_Continue"
                 android:textColor="@drawable/ButtonTextColor"
                 android:background="#006571"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"/>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

@@ -57,6 +57,8 @@ namespace RecoveriesConnect
         public string var_TransactionDescription,var_ReceiptNumber,var_Amount, var_Time, var_Date, var_Name, var_ClientName = "";
         public int var_PaymentType, var_PaymentMethod, var_PaymentId, var_FirstDebtorPaymentInstallmentId = 0;
 
+        PersonalInfo ObjectReturn2;
+
         protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
@@ -65,16 +67,21 @@ namespace RecoveriesConnect
 
 			SetContentView(Resource.Layout.UpdatePersonalInformation);
 
-			//**************************************************//
+            //**************************************************//
+            ScreenComeFrom = Intent.GetStringExtra("ScreenComeFrom") ?? "";
 
-			ActionBar.NavigationMode = ActionBarNavigationMode.Standard;
+            ActionBar.NavigationMode = ActionBarNavigationMode.Standard;
 
-			var upArrow = Resources.GetDrawable(Resource.Drawable.abc_ic_ab_back_mtrl_am_alpha);
-			upArrow.SetColorFilter(Color.ParseColor("#006571"), PorterDuff.Mode.SrcIn);
-			ActionBar.SetHomeAsUpIndicator(upArrow);
+            if (ScreenComeFrom.Equals("HomeMenu"))
+            {
+                var upArrow = Resources.GetDrawable(Resource.Drawable.abc_ic_ab_back_mtrl_am_alpha);
+                upArrow.SetColorFilter(Color.ParseColor("#006571"), PorterDuff.Mode.SrcIn);
+                ActionBar.SetHomeAsUpIndicator(upArrow);
+                ActionBar.SetDisplayHomeAsUpEnabled(true);
+                ActionBar.SetHomeButtonEnabled(true);
+            }
 
-			ActionBar.SetDisplayHomeAsUpEnabled(true);
-			ActionBar.SetHomeButtonEnabled(true);
+
 
 			LinearLayout lLayout = new LinearLayout(this);
 			lLayout.SetGravity(GravityFlags.CenterVertical);
@@ -137,7 +144,6 @@ namespace RecoveriesConnect
 
             spinner_Prefer.SetSelection(selectedIndex);
 
-            ScreenComeFrom = Intent.GetStringExtra("ScreenComeFrom") ?? "";
             if (!ScreenComeFrom.Equals("HomeMenu"))
             {
                 var_TransactionDescription = Intent.GetStringExtra("tv_TransactionDescription") ?? "";
@@ -202,7 +208,7 @@ namespace RecoveriesConnect
 
 			try
 			{
-				var ObjectReturn2 = new PersonalInfo();
+				ObjectReturn2 = new PersonalInfo();
 
 				string results2 = ConnectWebAPI.Request(url2, json2);
 
@@ -266,18 +272,33 @@ namespace RecoveriesConnect
 			string url = Settings.InstanceURL;
 			var url2 = url + "/Api/GetPersonalInformationDetail";
 
-			var json2 = new
-			{
-				Item = new
-				{
-					ReferenceNumber = Settings.RefNumber,
-					DebtorCode  = Settings.DebtorCodeSelected,
-					Action = "U",
-					Address1s = this.et_StreetAddress1.Text.Trim(),
-					HomeNumber = this.et_HomePhone.Text.Trim(),
-					WorkNumber = this.et_WorkPhone.Text.Trim(),
-					MobileNumbers = this.et_MobilePhone.Text.Trim(),
-                    EmailAddress = this.et_Email.Text.Trim(),
+            var json2 = new
+            {
+                Item = new
+                {
+                    ReferenceNumber = Settings.RefNumber,
+                    DebtorCode = Settings.DebtorCodeSelected,
+                    Action = "U",
+
+                    StreetAddress1 = this.Compare(this.et_StreetAddress1.Text.Trim(), ObjectReturn2.Marked_StreetAddress1, ObjectReturn2.Origin_StreetAddress1),
+                    StreetAddress2 = this.Compare(this.et_StreetAddress2.Text.Trim(), ObjectReturn2.Marked_StreetAddress2, ObjectReturn2.Origin_StreetAddress2),
+                    StreetAddress3 = this.Compare(this.et_StreetAddress3.Text.Trim(), ObjectReturn2.Marked_StreetAddress3, ObjectReturn2.Origin_StreetAddress3),
+                    StreetSuburb = this.Compare(this.et_StreetSuburb.Text.Trim(), ObjectReturn2.Marked_StreetSuburb, ObjectReturn2.Origin_StreetSuburb),
+                    StreetState = this.Compare(this.et_StreetState.Text.Trim(), ObjectReturn2.Marked_StreetState, ObjectReturn2.Origin_StreetState),
+                    StreetPostCode = this.Compare(this.et_StreetPostCode.Text.Trim(), ObjectReturn2.Marked_StreetPostCode, ObjectReturn2.Origin_StreetPostCode),
+
+                    MailAddress1 = this.Compare(this.et_MailAddress1.Text.Trim(), ObjectReturn2.Marked_MailAddress1, ObjectReturn2.Origin_MailAddress1),
+                    MailAddress2 = this.Compare(this.et_MailAddress2.Text.Trim(), ObjectReturn2.Marked_MailAddress2, ObjectReturn2.Origin_MailAddress2),
+                    MailAddress3 = this.Compare(this.et_MailAddress3.Text.Trim(), ObjectReturn2.Marked_MailAddress3, ObjectReturn2.Origin_MailAddress3),
+                    MailSuburb = this.Compare(this.et_MailSuburb.Text.Trim(), ObjectReturn2.Marked_MailSuburb, ObjectReturn2.Origin_MailSuburb),
+                    MailState = this.Compare(this.et_MailState.Text.Trim(), ObjectReturn2.Marked_MailState, ObjectReturn2.Origin_MailState),
+                    MailPostCode = this.Compare(this.et_MailPostCode.Text.Trim(), ObjectReturn2.Marked_MailPostCode, ObjectReturn2.Origin_MailPostCode),
+
+                    HomeNumber = this.Compare(this.et_HomePhone.Text.Trim(), ObjectReturn2.Marked_HomeNumber, ObjectReturn2.Origin_HomeNumber),
+                    WorkNumber = this.Compare(this.et_WorkPhone.Text.Trim(), ObjectReturn2.Marked_WorkNumber, ObjectReturn2.Origin_WorkNumber),
+                    MobileNumbers = this.Compare(this.et_MobilePhone.Text.Trim(), ObjectReturn2.Marked_MobileNumbers, ObjectReturn2.Origin_MobileNumbers),
+                    EmailAddress = this.Compare(this.et_Email.Text.Trim(), ObjectReturn2.Marked_EmailAddress, ObjectReturn2.Origin_EmailAddress),
+
                     Preferred = this.selectedIndex
 				}
 			};
@@ -352,6 +373,17 @@ namespace RecoveriesConnect
 			}
 		}
 
+        public string Compare(string displayText, string encryptText, string originText)
+        {
+            if (displayText.Equals(encryptText))
+            {
+                return originText;
+            }
+            else
+            {
+                return displayText;
+            }
+        }
 		public override bool OnOptionsItemSelected(IMenuItem item)
 		{
 			base.OnOptionsItemSelected(item);
@@ -369,9 +401,13 @@ namespace RecoveriesConnect
 			return true;
 		}
 
-
-
-
-	}
+        public override void OnBackPressed()
+        {
+            if (this.ScreenComeFrom.Equals("HomeMenu"))
+            {
+                base.OnBackPressed();
+            }
+        }
+    }
 }
 
