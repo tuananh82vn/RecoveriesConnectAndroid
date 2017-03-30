@@ -6167,8 +6167,8 @@ namespace RecoveriesConnect
 			// aapt resource value: 0x7f0b0058
 			public const int Left = 2131427416;
 			
-			// aapt resource value: 0x7f0b01f6
-			public const int Lock = 2131427830;
+			// aapt resource value: 0x7f0b0200
+			public const int Lock = 2131427840;
 			
 			// aapt resource value: 0x7f0b0061
 			public const int Millisecond = 2131427425;
@@ -6281,14 +6281,14 @@ namespace RecoveriesConnect
 			// aapt resource value: 0x7f0b0068
 			public const int action_mode_close_button = 2131427432;
 			
-			// aapt resource value: 0x7f0b01f8
-			public const int action_refresh = 2131427832;
+			// aapt resource value: 0x7f0b0202
+			public const int action_refresh = 2131427842;
 			
-			// aapt resource value: 0x7f0b01f7
-			public const int action_send = 2131427831;
+			// aapt resource value: 0x7f0b0201
+			public const int action_send = 2131427841;
 			
-			// aapt resource value: 0x7f0b01f4
-			public const int action_settings = 2131427828;
+			// aapt resource value: 0x7f0b01fe
+			public const int action_settings = 2131427838;
 			
 			// aapt resource value: 0x7f0b0069
 			public const int activity_chooser_view_content = 2131427433;
@@ -6626,8 +6626,8 @@ namespace RecoveriesConnect
 			// aapt resource value: 0x7f0b01aa
 			public const int err_Date = 2131427754;
 			
-			// aapt resource value: 0x7f0b01f1
-			public const int err_DateOfBirth = 2131427825;
+			// aapt resource value: 0x7f0b01fb
+			public const int err_DateOfBirth = 2131427835;
 			
 			// aapt resource value: 0x7f0b0157
 			public const int err_Expiry = 2131427671;
@@ -6641,11 +6641,11 @@ namespace RecoveriesConnect
 			// aapt resource value: 0x7f0b01d0
 			public const int err_Frequency = 2131427792;
 			
-			// aapt resource value: 0x7f0b01ef
-			public const int err_FullName = 2131427823;
+			// aapt resource value: 0x7f0b01f9
+			public const int err_FullName = 2131427833;
 			
-			// aapt resource value: 0x7f0b01eb
-			public const int err_MobilePhone = 2131427819;
+			// aapt resource value: 0x7f0b01f5
+			public const int err_MobilePhone = 2131427829;
 			
 			// aapt resource value: 0x7f0b01a6
 			public const int err_Name = 2131427750;
@@ -6659,8 +6659,8 @@ namespace RecoveriesConnect
 			// aapt resource value: 0x7f0b01a8
 			public const int err_Phone = 2131427752;
 			
-			// aapt resource value: 0x7f0b01f3
-			public const int err_PostCode = 2131427827;
+			// aapt resource value: 0x7f0b01fd
+			public const int err_PostCode = 2131427837;
 			
 			// aapt resource value: 0x7f0b01bd
 			public const int err_SecondAmount = 2131427773;
@@ -6710,11 +6710,11 @@ namespace RecoveriesConnect
 			// aapt resource value: 0x7f0b01a9
 			public const int et_Date = 2131427753;
 			
-			// aapt resource value: 0x7f0b01f0
-			public const int et_DateOfBirth = 2131427824;
+			// aapt resource value: 0x7f0b01fa
+			public const int et_DateOfBirth = 2131427834;
 			
-			// aapt resource value: 0x7f0b01ed
-			public const int et_Email = 2131427821;
+			// aapt resource value: 0x7f0b01f7
+			public const int et_Email = 2131427831;
 			
 			// aapt resource value: 0x7f0b01e5
 			public const int et_Expiry = 2131427813;
@@ -6728,17 +6728,32 @@ namespace RecoveriesConnect
 			// aapt resource value: 0x7f0b01b9
 			public const int et_FirstDate = 2131427769;
 			
+			// aapt resource value: 0x7f0b01f8
+			public const int et_FullName = 2131427832;
+			
+			// aapt resource value: 0x7f0b01f2
+			public const int et_HomePhone = 2131427826;
+			
+			// aapt resource value: 0x7f0b01ec
+			public const int et_MailAddress1 = 2131427820;
+			
+			// aapt resource value: 0x7f0b01ed
+			public const int et_MailAddress2 = 2131427821;
+			
 			// aapt resource value: 0x7f0b01ee
-			public const int et_FullName = 2131427822;
+			public const int et_MailAddress3 = 2131427822;
 			
-			// aapt resource value: 0x7f0b01e8
-			public const int et_HomePhone = 2131427816;
+			// aapt resource value: 0x7f0b01f1
+			public const int et_MailPostcode = 2131427825;
 			
-			// aapt resource value: 0x7f0b01e7
-			public const int et_MailAddress = 2131427815;
+			// aapt resource value: 0x7f0b01f0
+			public const int et_MailState = 2131427824;
 			
-			// aapt resource value: 0x7f0b01ea
-			public const int et_MobilePhone = 2131427818;
+			// aapt resource value: 0x7f0b01ef
+			public const int et_MailSuburb = 2131427823;
+			
+			// aapt resource value: 0x7f0b01f4
+			public const int et_MobilePhone = 2131427828;
 			
 			// aapt resource value: 0x7f0b01a5
 			public const int et_Name = 2131427749;
@@ -6758,8 +6773,8 @@ namespace RecoveriesConnect
 			// aapt resource value: 0x7f0b011f
 			public const int et_Pin = 2131427615;
 			
-			// aapt resource value: 0x7f0b01f2
-			public const int et_PostCode = 2131427826;
+			// aapt resource value: 0x7f0b01fc
+			public const int et_PostCode = 2131427836;
 			
 			// aapt resource value: 0x7f0b01bc
 			public const int et_SecondAmount = 2131427772;
@@ -6768,7 +6783,22 @@ namespace RecoveriesConnect
 			public const int et_SecondDate = 2131427774;
 			
 			// aapt resource value: 0x7f0b01e6
-			public const int et_StreetAddress = 2131427814;
+			public const int et_StreetAddress1 = 2131427814;
+			
+			// aapt resource value: 0x7f0b01e7
+			public const int et_StreetAddress2 = 2131427815;
+			
+			// aapt resource value: 0x7f0b01e8
+			public const int et_StreetAddress3 = 2131427816;
+			
+			// aapt resource value: 0x7f0b01eb
+			public const int et_StreetPostcode = 2131427819;
+			
+			// aapt resource value: 0x7f0b01ea
+			public const int et_StreetState = 2131427818;
+			
+			// aapt resource value: 0x7f0b01e9
+			public const int et_StreetSuburb = 2131427817;
 			
 			// aapt resource value: 0x7f0b01b0
 			public const int et_Subject = 2131427760;
@@ -6779,8 +6809,8 @@ namespace RecoveriesConnect
 			// aapt resource value: 0x7f0b01c3
 			public const int et_ThirdDate = 2131427779;
 			
-			// aapt resource value: 0x7f0b01e9
-			public const int et_WorkPhone = 2131427817;
+			// aapt resource value: 0x7f0b01f3
+			public const int et_WorkPhone = 2131427827;
 			
 			// aapt resource value: 0x7f0b002d
 			public const int exitUntilCollapsed = 2131427373;
@@ -7103,8 +7133,8 @@ namespace RecoveriesConnect
 			// aapt resource value: 0x7f0b00d3
 			public const int lowText = 2131427539;
 			
-			// aapt resource value: 0x7f0b01f5
-			public const int mainMenu = 2131427829;
+			// aapt resource value: 0x7f0b01ff
+			public const int mainMenu = 2131427839;
 			
 			// aapt resource value: 0x7f0b018c
 			public const int media_actions = 2131427724;
@@ -7370,8 +7400,8 @@ namespace RecoveriesConnect
 			// aapt resource value: 0x7f0b01af
 			public const int spinner_Method = 2131427759;
 			
-			// aapt resource value: 0x7f0b01ec
-			public const int spinner_Prefer = 2131427820;
+			// aapt resource value: 0x7f0b01f6
+			public const int spinner_Prefer = 2131427830;
 			
 			// aapt resource value: 0x7f0b0008
 			public const int split_action_bar = 2131427336;

@@ -19,19 +19,25 @@ namespace RecoveriesConnect
 	[Activity(Label = "UpdatePersonalInformation", LaunchMode = LaunchMode.SingleTop, Theme = "@style/Theme.Themecustom")]
 	public class UpdatePersonalInformationActivity : Activity
 	{
-		public EditText et_StreetAddress;
-		public EditText et_MailAddress;
+		public EditText et_StreetAddress1;
+        public EditText et_StreetAddress2;
+        public EditText et_StreetAddress3;
+        public EditText et_StreetSuburb;
+        public EditText et_StreetState;
+        public EditText et_StreetPostCode;
+
+        public EditText et_MailAddress1;
+        public EditText et_MailAddress2;
+        public EditText et_MailAddress3;
+        public EditText et_MailState;
+        public EditText et_MailSuburb;
+        public EditText et_MailPostCode;
+
 		public EditText et_HomePhone;
 		public EditText et_WorkPhone;
 		public EditText et_MobilePhone;
         public EditText et_Email;
 
-
-
-        public TextView err_StreetAddress;
-		public TextView err_MailAddress;
-		public TextView err_HomePhone;
-		public TextView err_WorkPhone;
 		public TextView err_MobilePhone;
 
 		Alert alert;
@@ -87,9 +93,23 @@ namespace RecoveriesConnect
 
 			//**************************************************//
 
-			et_StreetAddress = FindViewById<EditText>(Resource.Id.et_StreetAddress);
-			et_MailAddress = FindViewById<EditText>(Resource.Id.et_MailAddress);
-			et_HomePhone = FindViewById<EditText>(Resource.Id.et_HomePhone);
+			et_StreetAddress1 = FindViewById<EditText>(Resource.Id.et_StreetAddress1);
+            et_StreetAddress2 = FindViewById<EditText>(Resource.Id.et_StreetAddress2);
+            et_StreetAddress3 = FindViewById<EditText>(Resource.Id.et_StreetAddress3);
+
+            et_StreetSuburb = FindViewById<EditText>(Resource.Id.et_StreetSuburb);
+            et_StreetState = FindViewById<EditText>(Resource.Id.et_StreetState);
+            et_StreetPostCode = FindViewById<EditText>(Resource.Id.et_StreetPostcode);
+
+            et_MailAddress1 = FindViewById<EditText>(Resource.Id.et_MailAddress1);
+            et_MailAddress2 = FindViewById<EditText>(Resource.Id.et_MailAddress2);
+            et_MailAddress3 = FindViewById<EditText>(Resource.Id.et_MailAddress3);
+            et_MailSuburb = FindViewById<EditText>(Resource.Id.et_MailSuburb);
+            et_MailState = FindViewById<EditText>(Resource.Id.et_MailState);
+            et_MailPostCode = FindViewById<EditText>(Resource.Id.et_MailPostcode);
+
+
+            et_HomePhone = FindViewById<EditText>(Resource.Id.et_HomePhone);
 			et_WorkPhone = FindViewById<EditText>(Resource.Id.et_WorkPhone);
 			et_MobilePhone = FindViewById<EditText>(Resource.Id.et_MobilePhone);
             et_Email = FindViewById<EditText>(Resource.Id.et_Email);
@@ -203,12 +223,25 @@ namespace RecoveriesConnect
 					if (ObjectReturn2.IsSuccess)
 					{
 
-						this.et_StreetAddress.Text = ObjectReturn2.Address1s;
-						this.et_MailAddress.Text = ObjectReturn2.Address2s;
-						this.et_HomePhone.Text = ObjectReturn2.HomeNumber;
+						this.et_StreetAddress1.Text = ObjectReturn2.StreetAddress1;
+                        this.et_StreetAddress2.Text = ObjectReturn2.StreetAddress2;
+                        this.et_StreetAddress3.Text = ObjectReturn2.StreetAddress3;
+                        this.et_StreetSuburb.Text   = ObjectReturn2.StreetSuburb;
+                        this.et_StreetState.Text    = ObjectReturn2.StreetState;
+                        this.et_StreetPostCode.Text = ObjectReturn2.StreetPostCode;
+
+                        this.et_MailAddress1.Text = ObjectReturn2.MailAddress1;
+                        this.et_MailAddress2.Text = ObjectReturn2.MailAddress2;
+                        this.et_MailAddress3.Text = ObjectReturn2.MailAddress3;
+                        this.et_MailSuburb.Text = ObjectReturn2.MailSuburb;
+                        this.et_MailState.Text = ObjectReturn2.MailState;
+                        this.et_MailPostCode.Text = ObjectReturn2.MailPostCode;
+
+                        this.et_HomePhone.Text = ObjectReturn2.HomeNumber;
 						this.et_WorkPhone.Text = ObjectReturn2.WorkNumber;
 						this.et_MobilePhone.Text = ObjectReturn2.MobileNumber;
                         this.et_Email.Text = ObjectReturn2.EmailAddress;
+
                         this.selectedIndex = ObjectReturn2.Preferred;
                     }
 					else
@@ -240,8 +273,7 @@ namespace RecoveriesConnect
 					ReferenceNumber = Settings.RefNumber,
 					DebtorCode  = Settings.DebtorCodeSelected,
 					Action = "U",
-					Address1s = this.et_StreetAddress.Text.Trim(),
-					Address2s = this.et_MailAddress.Text.Trim(),
+					Address1s = this.et_StreetAddress1.Text.Trim(),
 					HomeNumber = this.et_HomePhone.Text.Trim(),
 					WorkNumber = this.et_WorkPhone.Text.Trim(),
 					MobileNumbers = this.et_MobilePhone.Text.Trim(),
