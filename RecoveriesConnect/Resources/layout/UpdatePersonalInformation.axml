@@ -376,14 +376,14 @@
                 android:text="Continue"
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:id="@+id/bt_Continue"
                 android:textColor="@drawable/ButtonTextColor"
                 android:background="#006571"
                 android:textSize="20dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:layout_marginBottom="5dp"/>
+                android:layout_marginBottom="5dp" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

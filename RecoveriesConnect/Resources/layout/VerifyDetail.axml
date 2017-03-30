@@ -162,13 +162,13 @@
     <Button
         android:text="Continue"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:id="@+id/bt_Continue"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:textColor="@android:color/white"
         android:background="#006571"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp" />
+        android:layout_marginBottom="5dp" />
 </RelativeLayout>

@@ -46,7 +46,7 @@
         <Button
             android:text="Delete"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:id="@+id/bt_Delete"
             android:textColor="@drawable/ButtonTextColor"
             android:background="@android:color/black"

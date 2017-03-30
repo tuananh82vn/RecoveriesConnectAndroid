@@ -11,7 +11,7 @@
         <Button
             android:text="Pay an Amount"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:id="@+id/bt_Pay"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
@@ -22,7 +22,7 @@
         <Button
             android:text="Create Instalment Plan"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:id="@+id/bt_Create"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"

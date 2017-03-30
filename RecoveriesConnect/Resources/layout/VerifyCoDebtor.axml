@@ -33,7 +33,7 @@
         <Button
             android:text="Get your NetCode SMS"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:id="@+id/buttonNetcode"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
@@ -65,7 +65,7 @@
     <Button
         android:text="Continue"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:id="@+id/buttonContinue"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"

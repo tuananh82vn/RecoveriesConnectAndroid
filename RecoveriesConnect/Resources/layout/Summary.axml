@@ -295,7 +295,7 @@
                     <Button
                         android:text="Email"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="50dp"
                         android:id="@+id/bt_Email"
                         android:background="@color/office_green"
                         android:textColor="@drawable/ButtonTextColor"
@@ -314,7 +314,7 @@
                     <Button
                         android:text="Save to Inbox"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="50dp"
                         android:id="@+id/bt_Inbox"
                         android:background="@color/office_green"
                         android:textColor="@drawable/ButtonTextColor"
@@ -333,7 +333,7 @@
         <Button
             android:text="Finish"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:id="@+id/bt_Finish"
             android:layout_alignParentBottom="true"
             android:background="#006571"

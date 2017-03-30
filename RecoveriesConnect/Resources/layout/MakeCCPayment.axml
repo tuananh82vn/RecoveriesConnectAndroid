@@ -475,7 +475,7 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_alignParentBottom="true"
         android:gravity="center"
@@ -495,7 +495,9 @@
                 android:textOn="Yes"
                 android:textOff=" No"
                 android:showText="true"
-                android:splitTrack="true" />
+                android:splitTrack="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -509,7 +511,7 @@
         <Button
             android:text="Continue"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:id="@+id/bt_Continue"
             android:textColor="@drawable/ButtonTextColor"
             android:background="#006571"
