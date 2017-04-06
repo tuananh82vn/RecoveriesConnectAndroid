@@ -18,7 +18,7 @@ namespace RecoveriesConnect
 {
 	[Activity(Label = "UpdatePersonalInformation", LaunchMode = LaunchMode.SingleTop, Theme = "@style/Theme.Themecustom")]
 	public class UpdatePersonalInformationActivity : Activity
-	{
+    {
 		public EditText et_StreetAddress1;
         public EditText et_StreetAddress2;
         public EditText et_StreetAddress3;
@@ -58,6 +58,7 @@ namespace RecoveriesConnect
         public int var_PaymentType, var_PaymentMethod, var_PaymentId, var_FirstDebtorPaymentInstallmentId = 0;
 
         PersonalInfo ObjectReturn2;
+
 
         protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -101,25 +102,52 @@ namespace RecoveriesConnect
 			//**************************************************//
 
 			et_StreetAddress1 = FindViewById<EditText>(Resource.Id.et_StreetAddress1);
+            et_StreetAddress1.FocusChange += Et_StreetAddress1_FocusChange;
+
             et_StreetAddress2 = FindViewById<EditText>(Resource.Id.et_StreetAddress2);
+            et_StreetAddress2.FocusChange += Et_StreetAddress1_FocusChange;
+
             et_StreetAddress3 = FindViewById<EditText>(Resource.Id.et_StreetAddress3);
+            et_StreetAddress3.FocusChange += Et_StreetAddress1_FocusChange;
 
             et_StreetSuburb = FindViewById<EditText>(Resource.Id.et_StreetSuburb);
+            et_StreetSuburb.FocusChange += Et_StreetAddress1_FocusChange;
+
             et_StreetState = FindViewById<EditText>(Resource.Id.et_StreetState);
+            et_StreetState.FocusChange += Et_StreetAddress1_FocusChange;
+
             et_StreetPostCode = FindViewById<EditText>(Resource.Id.et_StreetPostcode);
+            et_StreetPostCode.FocusChange += Et_StreetAddress1_FocusChange;
 
             et_MailAddress1 = FindViewById<EditText>(Resource.Id.et_MailAddress1);
+            et_MailAddress1.FocusChange += Et_StreetAddress1_FocusChange;
+            
             et_MailAddress2 = FindViewById<EditText>(Resource.Id.et_MailAddress2);
-            et_MailAddress3 = FindViewById<EditText>(Resource.Id.et_MailAddress3);
-            et_MailSuburb = FindViewById<EditText>(Resource.Id.et_MailSuburb);
-            et_MailState = FindViewById<EditText>(Resource.Id.et_MailState);
-            et_MailPostCode = FindViewById<EditText>(Resource.Id.et_MailPostcode);
+            et_MailAddress2.FocusChange += Et_StreetAddress1_FocusChange;
 
+            et_MailAddress3 = FindViewById<EditText>(Resource.Id.et_MailAddress3);
+            et_MailAddress3.FocusChange += Et_StreetAddress1_FocusChange;
+
+            et_MailSuburb = FindViewById<EditText>(Resource.Id.et_MailSuburb);
+            et_MailSuburb.FocusChange += Et_StreetAddress1_FocusChange;
+
+            et_MailState = FindViewById<EditText>(Resource.Id.et_MailState);
+            et_MailState.FocusChange += Et_StreetAddress1_FocusChange;
+
+            et_MailPostCode = FindViewById<EditText>(Resource.Id.et_MailPostcode);
+            et_MailPostCode.FocusChange += Et_StreetAddress1_FocusChange;
 
             et_HomePhone = FindViewById<EditText>(Resource.Id.et_HomePhone);
-			et_WorkPhone = FindViewById<EditText>(Resource.Id.et_WorkPhone);
-			et_MobilePhone = FindViewById<EditText>(Resource.Id.et_MobilePhone);
+            et_HomePhone.FocusChange += Et_StreetAddress1_FocusChange;
+
+            et_WorkPhone = FindViewById<EditText>(Resource.Id.et_WorkPhone);
+            et_WorkPhone.FocusChange += Et_StreetAddress1_FocusChange;
+
+            et_MobilePhone = FindViewById<EditText>(Resource.Id.et_MobilePhone);
+            et_MobilePhone.FocusChange += Et_StreetAddress1_FocusChange;
+
             et_Email = FindViewById<EditText>(Resource.Id.et_Email);
+            et_Email.FocusChange += Et_StreetAddress1_FocusChange;
 
 
             bt_Continue = FindViewById<Button>(Resource.Id.bt_Continue);
@@ -159,6 +187,19 @@ namespace RecoveriesConnect
                 var_FirstDebtorPaymentInstallmentId = Intent.GetIntExtra("FirstDebtorPaymentInstallmentId", 0);
             }
         }
+
+        private void Et_StreetAddress1_FocusChange(object sender, View.FocusChangeEventArgs e)
+        {
+            if (e.HasFocus)
+            {
+                if (sender is EditText)
+                {
+                    EditText tb = (EditText)sender;
+                    tb.SetText("", TextView.BufferType.Editable);
+                }
+            }
+        }
+
         private void Prefer_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             selectedIndex = e.Position;
@@ -375,7 +416,7 @@ namespace RecoveriesConnect
 
         public string Compare(string displayText, string encryptText, string originText)
         {
-            if (displayText.Equals(encryptText))
+            if (displayText.Equals(encryptText) || displayText.Equals(""))
             {
                 return originText;
             }

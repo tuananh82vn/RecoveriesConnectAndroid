@@ -13,6 +13,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true"
             android:gravity="top">
             <TextView
                 android:text="Your personal information has been obscured to protect your privacy. To update your details, please clear the field(s), input new details and press Continue:"
