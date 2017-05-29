@@ -14,8 +14,8 @@ namespace RecoveriesConnect.Helpers
 		private static readonly string DeviceTokenKey_Default = string.Empty;
 
         private const string InstanceURLKey = "InstanceURLKey";
-        //private static readonly string InstanceURLKey_Default = "http://172.28.1.70:9999";
-        private static readonly string InstanceURLKey_Default = "http://180.94.113.19:3333";
+        private static readonly string InstanceURLKey_Default = "http://172.28.1.70:9999";
+        //private static readonly string InstanceURLKey_Default = "http://180.94.113.19:3333";
         //private static readonly string InstanceURLKey_Default = "https://payments.recoveriescorp.com.au";
 
         private const string ArrangementDebtorKey = "ArrangementDebtorKey";

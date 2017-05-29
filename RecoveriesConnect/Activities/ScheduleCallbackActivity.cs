@@ -13,6 +13,7 @@ using System.Threading;
 using AndroidHUD;
 using System.Collections.Generic;
 using RecoveriesConnect.Adapter;
+using Android.Util;
 
 namespace RecoveriesConnect.Activities
 {
@@ -38,7 +39,7 @@ namespace RecoveriesConnect.Activities
 		public TextView err_Phone;
 		public TextView err_Date;
 		public TextView err_TimeFrom;
-
+        public LinearLayout layout_button;
 
 		public bool IsValidate = true;
 
@@ -108,13 +109,37 @@ namespace RecoveriesConnect.Activities
 			bt_Continue = FindViewById<Button>(Resource.Id.bt_Continue);
 			bt_Continue.Click += Bt_Continue_Click;
 
-			Keyboard.ShowKeyboard(this, this.et_Name);
+            layout_button = FindViewById<LinearLayout>(Resource.Id.linearLayout_button);
+
+
+            Keyboard.ShowKeyboard(this, this.et_Name);
 
 			TrackingHelper.SendTracking("Open Schedule Callback");
 
+            this.Window.SetSoftInputMode(SoftInput.AdjustResize);
 
-		}
+            var metrics = Resources.DisplayMetrics;
+            var heightInDp = ConvertPixelsToDp(metrics.HeightPixels);
 
+            // Gets the layout params that will allow you to resize the layout
+            ViewGroup.LayoutParams temp = layout_button.LayoutParameters;
+            // Changes the height and width to the specified *pixels*
+            temp.Height = ConvertDpToPixel(heightInDp - 400);
+            layout_button.LayoutParameters = temp;
+
+        }
+        private int ConvertPixelsToDp(float pixelValue)
+        {
+            var dp = (int)((pixelValue) / Resources.DisplayMetrics.Density);
+            return dp;
+        }
+
+        private int ConvertDpToPixel(float Dp)
+        {
+            int pixel = (int)TypedValue.ApplyDimension(ComplexUnitType.Dip, Dp, Resources.DisplayMetrics);
+
+            return pixel;
+        }
         //private void Spinner_Callback_Click(object sender, EventArgs e)
         //{
         //    if(this.listCallBack.Count == 0)
